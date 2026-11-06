@@ -2,11 +2,11 @@
 
 **A web trading platform for brokers, with an AI assistant that runs on the broker's own servers.**
 
-Clients trade in the browser, with no installation. They can type what they want in plain words, in English or Greek, and see the risk in money before every order. Dealers get one live screen with every client, the broker's exposure and the accounts close to stop-out.
+Clients trade in the browser, with no installation. They can type what they want in plain words and see the risk in money before every order. Dealers get one live screen with every client, the broker's exposure and the accounts close to stop-out.
 
 ![Go WebTrader in action](assets/preview.gif)
 
-▶ **[Watch the full demo (2.5 minutes)](assets/go-webtrader-demo.mp4)**: first a trader, then the dealing desk. The captions are in Greek.
+▶ **[Watch the full demo (2.5 minutes)](assets/go-webtrader-demo.mp4)**: first a trader, then the dealing desk.
 
 This repository is a showcase. The source code is private.
 
@@ -29,9 +29,9 @@ This repository is a showcase. The source code is private.
 
 ## The AI assistant
 
-- **Orders in plain words.** *"buy 0.1 eurusd sl 20 tp 40"*, *"κλείσε τα μισά από το χρυσό"* (close half of the gold), *"trailing 15 on my sells"*. The assistant shows exactly what will happen, with pips already turned into prices, and **nothing runs until the client clicks Confirm**.
+- **Orders in plain words.** *"buy 0.1 eurusd sl 20 tp 40"*, *"close half of my gold"*, *"trailing 15 on my sells"*. It understands English and Greek, and more languages can be added. The assistant shows exactly what will happen, with pips already turned into prices, and **nothing runs until the client clicks Confirm**.
 - **Strategies without code, instead of Expert Advisors.** *"when RSI 14 on EURUSD M15 falls below 30 and the price is above the EMA 200, buy 0.1 with a 20 pip stop"*. The client tests the strategy on recent history (number of trades, profit, win rate, worst drop) before activating it. Once active, plain code checks it at every candle close, and the AI takes no part in trading.
-- **Risk questions.** *"what if gold falls 2%?"*, *"τι ρίσκο έχω;"* (what is my risk?). The platform computes every number with the same formulas as the trading engine, including the stop losses that would close positions on the way. The AI only reads the question.
+- **Risk questions.** *"what if gold falls 2%?"*, *"what is my risk?"*. The platform computes every number with the same formulas as the trading engine, including the stop losses that would close positions on the way. The AI only reads the question.
 - **Your model, your servers.** The assistant uses an open-source model on the broker's own hardware (Ollama, llama.cpp or vLLM). Client data never leaves the broker. Common commands are understood instantly by built-in rules, so they work even when the model is offline.
 
 ![Strategies, backtest and risk](assets/strategies-and-risk.jpg)

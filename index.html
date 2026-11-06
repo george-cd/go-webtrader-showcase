@@ -87,7 +87,7 @@
     <div class="screen">
       <video src="assets/go-webtrader-demo.mp4" poster="assets/trader.jpg" controls muted playsinline preload="metadata"></video>
     </div>
-    <div class="caption">The full demo, 2.5 minutes: a trader, then the dealing desk (captions in Greek). Prices come from a built-in simulator.</div>
+    <div class="caption">The full demo, 2.5 minutes: a trader, then the dealing desk. Prices come from a built-in simulator.</div>
   </header>
 
   <section class="block split">
@@ -109,9 +109,9 @@
     <h2 id="ai"><span class="spark" aria-hidden="true">✦</span>An assistant that never trades on its own</h2>
     <div class="chat">
       <div class="say"><q>buy 0.5 gold, stop 150 pips, tp 300</q><div>Shows <b>Buy 0.50 XAUUSD, SL 2335.63, TP 2380.63</b> and waits for Confirm.</div></div>
-      <div class="say"><q>κλείσε τα μισά από το χρυσό</q><div>Greek for "close half of the gold": proposes <b>closing 0.25 of 0.50 lots</b> of the gold position.</div></div>
+      <div class="say"><q>close half of my gold</q><div>Proposes <b>closing 0.25 of 0.50 lots</b> of the gold position. It understands Greek too.</div></div>
       <div class="say"><q>when price crosses above sma 20 and rsi above 50 on eurusd m5 then buy 0.2 sl 15 tp 30</q><div>Becomes a rule the client can <b>test on recent history</b> and then activate. It replaces Expert Advisors, with no code.</div></div>
-      <div class="say"><q>τι θα γίνει αν πέσει ο χρυσός 2%;</q><div>"What if gold falls 2%?": shows the <b>new equity, the stop losses that would close positions on the way</b>, and the margin level.</div></div>
+      <div class="say"><q>what if gold falls 2%?</q><div>Shows the <b>new equity, the stop losses that would close positions on the way</b>, and the margin level.</div></div>
     </div>
     <p class="note">The model is open source and runs on the broker's own hardware, so client data never leaves the broker. Every number comes from the trading engine, and the AI only understands the words. Common commands are understood by built-in rules in microseconds, even with the model offline.</p>
   </section>
