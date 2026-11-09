@@ -94,7 +94,7 @@
     <div class="screen">
       <video src="assets/go-webtrader-demo.mp4" poster="assets/trader.jpg" controls muted playsinline preload="metadata"></video>
     </div>
-    <div class="caption">The full demo, 2.5 minutes: a trader, then the dealing desk. Prices come from a built-in simulator.</div>
+    <div class="caption">The demo, 1 minute: the JavaScript version, the React version, then the dealing desk. Prices come from a built-in simulator.</div>
   </header>
 
   <section class="block split">
@@ -105,11 +105,40 @@
         <li>Margin needed and the value of one pip</li>
         <li>Loss at the stop loss in dollars and as a % of equity</li>
         <li>A clear warning when there is no stop loss</li>
-        <li>One-click trading from Market watch, plus Close profitable and Close all</li>
+        <li>One-click trading switch: off, every quick order asks first; on, it trades at once</li>
+        <li>Depth of market ladder: click a price to place a limit or stop order</li>
         <li>Pending orders, trailing stops, partial close, hedging and netting accounts</li>
       </ul>
     </div>
     <img class="shot" src="assets/order-ticket.jpg" alt="The order ticket: stop loss and take profit in pips, margin, pip value, loss at the stop loss in dollars and % of equity" loading="lazy" style="max-width:420px; justify-self:center; width:100%">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Charts traders expect, and more</h2>
+      <p>Drawn by the platform itself, with no chart library and no outside service.</p>
+      <ul class="points">
+        <li>1, 2 or 4 charts on screen, each with its own symbol and timeframe</li>
+        <li>MACD, Stochastic, ATR, RSI, Bollinger, SMA, EMA and tick volume</li>
+        <li>Trend lines, horizontal lines, Fibonacci and rectangles that stay in place on every timeframe</li>
+        <li>Price alerts: click a price on the chart, hear a sound when it is reached</li>
+        <li>A countdown to the candle close, dark and light theme, resizable panels</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/four-charts-light.jpg" alt="Four charts at once in the light theme, with RSI and MACD panes, and the depth of market ladder" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>Two front-ends, one platform</h2>
+      <p>The trader screen is built twice, on the same Go engine: once in plain JavaScript with no framework, and once in React. Both share one design, one chart engine and one set of trading logic.</p>
+      <ul class="points">
+        <li>Plain JavaScript: nothing to install, nothing to build, fastest to load</li>
+        <li>React: components, for teams that already work in React</li>
+        <li>The broker picks one; both talk to the same server</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/react-trader.jpg" alt="The React version of the trader screen" loading="lazy">
   </section>
 
   <section class="assistant" aria-labelledby="ai">
@@ -146,7 +175,7 @@
       <div><b>No double trades</b><span>A retried click or a reconnect never opens a second position.</span></div>
       <div><b>Exact money</b><span>Balances are counted in whole cents and checked against an append-only ledger.</span></div>
       <div><b>Reports without slowing trading</b><span>A PostgreSQL copy for back office and CRM is filled in the background.</span></div>
-      <div><b>On your servers</b><span>One program, no outside services. It also works on phones.</span></div>
+      <div><b>On your servers</b><span>One program, no outside services. It works on desktops, tablets and phones.</span></div>
     </div>
   </section>
 

@@ -6,7 +6,9 @@ Clients trade in the browser, with no installation. They can type what they want
 
 ![Go WebTrader in action](assets/preview.gif)
 
-▶ **[Watch the full demo (2.5 minutes)](assets/go-webtrader-demo.mp4)**: first a trader, then the dealing desk.
+▶ **[Watch the demo (1 minute)](assets/go-webtrader-demo.mp4)**: the JavaScript version, the React version, then the dealing desk.
+
+**Two front-ends, one platform.** The trader screen exists in two versions on the same Go engine: plain JavaScript with no framework, and React. Both share one design, one chart engine and the same trading logic.
 
 This repository is a showcase. The source code is private.
 
@@ -16,7 +18,7 @@ This repository is a showcase. The source code is private.
 
 ![Trading screen](assets/trader.jpg)
 
-- **One screen, nothing hidden.** Market watch with live prices and the daily change, a candlestick chart (M1 to D1, SMA, EMA, RSI, Bollinger), the order ticket, and the positions in tabs.
+- **One screen, nothing hidden.** Market watch with live prices, spread, daily change and a mini trend line, the charts, the order ticket, and the positions in tabs. Panels can be resized; dark and light theme.
 <img src="assets/order-ticket.jpg" alt="Order ticket with the risk in money" width="300" align="right">
 
 - **Risk in money, before the order.** Stop loss and take profit are entered in pips. Before the client clicks Buy, the ticket shows:
@@ -24,8 +26,27 @@ This repository is a showcase. The source code is private.
   - the loss at the stop loss in dollars and as a % of equity;
   - a warning when there is no stop loss.
 - **Everything MT4/MT5 traders expect.** Market and pending orders (limit, stop, expiry), stop loss, take profit, trailing stop, partial close, hedging and netting accounts, swap, commission, margin call and stop-out.
-- **One-click trading** from Market watch, plus *Close profitable* and *Close all*.
-- **Works on phones** as well as desktops.
+- **One-click trading switch**: off, every quick order asks first; on, it trades at once. Plus *Close profitable* and *Close all*.
+- **Depth of market ladder**: click a price to place a limit or stop order at it.
+- **Price alerts** from a tab or by clicking a price on the chart, with a sound when reached.
+- **Works on desktops, tablets and phones.**
+
+## Charts
+
+![Four charts, light theme](assets/four-charts-light.jpg)
+
+- **1, 2 or 4 charts on screen**, each with its own symbol and timeframe (M1 to D1); candles or line; save as a picture.
+- **Indicators:** SMA, EMA, Bollinger, RSI, MACD, Stochastic, ATR and tick volume, each lower one in its own pane.
+- **Drawing tools:** trend line, horizontal line, Fibonacci retracement, rectangle, eraser. Drawings stay in place on every timeframe.
+- **A countdown to the candle close** next to the live price, and lines for entries, stop losses, take profits, pending orders and alerts.
+
+![Depth of market and pending orders](assets/depth-and-orders.jpg)
+
+## Two versions: JavaScript and React
+
+![React version](assets/react-trader.jpg)
+
+The same screen, built twice on the same Go server: once in plain JavaScript (no framework, no build step) and once with React components. They share the styles, the chart engine and the trading logic, so they look and behave the same.
 
 ## The AI assistant
 
