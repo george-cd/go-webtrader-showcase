@@ -6,11 +6,17 @@ Clients trade in the browser, with no installation. They can type what they want
 
 **Built with Go, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same.
 
+**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the 1-minute demo video.
+
+![Go WebTrader in action](assets/preview.gif)
+
 This repository is a showcase. The source code is private.
 
 ---
 
 ## For traders
+
+![Trading screen](assets/trader.jpg)
 
 - **One screen, nothing hidden.** Market watch with live prices, spread, daily change and a mini trend line, the charts, the order ticket, and the positions in tabs. Panels can be resized; dark and light theme.
 - **Risk in money, before the order.** Stop loss and take profit are entered in pips. Before the client clicks Buy, the ticket shows:
@@ -25,12 +31,16 @@ This repository is a showcase. The source code is private.
 
 ## Charts
 
+![Four charts, light theme](assets/four-charts-light.jpg)
+
 - **1, 2 or 4 charts on screen**, each with its own symbol and timeframe (M1 to D1); candles or line; save as a picture.
 - **Indicators:** SMA, EMA, Bollinger, RSI, MACD, Stochastic, ATR and tick volume, each lower one in its own pane.
 - **Drawing tools:** trend line, horizontal line, Fibonacci retracement, rectangle, eraser. Drawings stay in place on every timeframe.
 - **A countdown to the candle close** next to the live price, and lines for entries, stop losses, take profits, pending orders and alerts.
 
 ## Two versions: JavaScript and React
+
+![The React version](assets/react-trader.jpg)
 
 The same screen in two versions on a Go back end: one in plain JavaScript and one in React. They look and behave the same, so a broker can choose the one that fits its team.
 
@@ -42,6 +52,8 @@ The same screen in two versions on a Go back end: one in plain JavaScript and on
 - **Your servers.** The assistant runs on the broker's own hardware, so client data never leaves the broker.
 
 ## For the dealing department
+
+![Dealing desk](assets/dealing-desk.jpg)
 
 A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 
@@ -57,7 +69,11 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 - **Alerts for dealers,** in the page and on the phone: new toxic client, auto-hedge, stop-out, bad prices.
 - **Back office:** withdrawals with four-eyes approval and one-click reconciliation of balances.
 
+![A client flagged as toxic](assets/desk-toxic-flow.jpg)
+
 In the demo, a simulated arbitrage client is marked toxic within minutes, with the reasons.
+
+![Liquidation map](assets/desk-liquidation-map.jpg)
 
 ## Built for real money
 

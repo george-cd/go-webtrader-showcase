@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go WebTrader</title>
+<meta name="description" content="A web trading platform for brokers, with an AI assistant that runs on the broker's own servers.">
+<!-- preview card for LinkedIn and other sites -->
+<meta property="og:title" content="Go WebTrader">
+<meta property="og:description" content="A web trading platform for brokers, with an AI assistant that runs on the broker's own servers.">
+<meta property="og:image" content="https://george-cd.github.io/go-webtrader-showcase/assets/trader.jpg">
+<meta property="og:url" content="https://george-cd.github.io/go-webtrader-showcase/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Same palette as the platform itself: harbour navy, teal / coral for
+     buy and sell, amber only for the AI. */
+  :root {
+    --bg:#0f1828; --panel:#142036; --panel2:#1b2a45; --line:#25385a;
+    --text:#e8eef8; --muted:#8d9dba; --up:#1fc28b; --down:#ff5e6c; --ai:#ffb547; --sel:#5b8cff;
+    --font:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 var(--font); }
+  a { color:var(--sel); }
+  img, video { display:block; max-width:100%; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 24px; }
+  :focus-visible { outline:2px solid var(--sel); outline-offset:3px; }
+
+  nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+  nav b { font-size:18px; }
+  nav a { color:var(--text); text-decoration:none; border:1px solid var(--line); border-radius:8px; padding:7px 14px; font-size:15px; }
+  nav a:hover { border-color:var(--sel); }
+
+  /* hero: the product itself */
+  .hero { padding:40px 0 30px; }
+  .hero h1 { font-size:clamp(36px, 5.4vw, 64px); line-height:1.08; letter-spacing:-.02em; margin:0; max-width:15ch; font-weight:700; }
+  .hero p { color:var(--muted); font-size:20px; max-width:56ch; margin:20px 0 0; }
+  .screen { margin-top:40px; border:1px solid var(--line); border-radius:14px; overflow:hidden;
+            box-shadow:0 30px 80px rgba(0,0,0,.45), 0 0 0 6px rgba(91,140,255,.06); background:var(--panel); }
+  .screen video { width:100%; height:auto; }
+  .caption { color:var(--muted); font-size:14px; margin-top:12px; }
+
+  section.block { padding:80px 0 0; }
+  .split { display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:48px; align-items:center; }
+  .split.flip { grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); }
+  .split.flip .text { order:2; }
+  h2 { font-size:32px; line-height:1.15; margin:0 0 16px; letter-spacing:-.01em; }
+  .text p { color:var(--muted); margin:0 0 14px; }
+  ul.points { margin:0; padding:0; list-style:none; display:grid; gap:10px; }
+  ul.points li { padding-left:20px; position:relative; }
+  ul.points li::before { content:""; position:absolute; left:0; top:.62em; width:8px; height:8px; border-radius:2px; background:var(--sel); }
+  .shot { border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+
+  /* the assistant: the one amber moment of the page */
+  .assistant { border:1px solid rgba(255,181,71,.5); border-radius:16px; padding:36px; margin-top:80px;
+               background:linear-gradient(0deg, rgba(255,181,71,.045), rgba(255,181,71,.045)), var(--panel); }
+  .assistant h2 .spark { color:var(--ai); margin-right:10px; }
+  .chat { display:grid; gap:14px; margin-top:24px; }
+  .say { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1.3fr); gap:16px; align-items:start; }
+  .say q { quotes:none; font-size:18px; background:var(--bg); border-radius:10px; padding:12px 16px; border:1px solid var(--line); }
+  .say div { color:var(--muted); padding:12px 0; }
+  .say div b { color:var(--text); font-weight:600; }
+  .note { margin-top:26px; color:var(--muted); font-size:15px; max-width:70ch; }
+
+  .facts { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0; margin-top:24px; border-top:1px solid var(--line); }
+  .facts div { padding:22px 22px 22px 0; border-bottom:1px solid var(--line); }
+  .facts b { display:block; font-size:18px; margin-bottom:4px; }
+  .facts span { color:var(--muted); font-size:15px; }
+
+  footer { padding:80px 0 50px; color:var(--muted); font-size:14px; }
+
+  @media (max-width: 860px) {
+    .split, .split.flip { grid-template-columns:1fr; gap:24px; }
+    .split.flip .text { order:0; }
+    .say { grid-template-columns:1fr; gap:4px; }
+    .say div { padding:0 0 6px; }
+    .facts { grid-template-columns:1fr; }
+    .assistant { padding:24px; }
+    section.block { padding-top:56px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <b>Go WebTrader</b>
+    <a href="assets/go-webtrader-demo.mp4">Watch the full demo</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Trading, risk and AI on one screen.</h1>
+    <p>A web trading platform for brokers. Clients trade in the browser, type orders in plain words and see the risk in money before every trade. The AI runs on the broker's own servers. Dealers get a desk that finds toxic flow on its own and hedges the broker's exposure automatically.</p>
+    <div class="screen">
+      <video src="assets/go-webtrader-demo.mp4" poster="assets/trader.jpg" controls muted playsinline preload="metadata"></video>
+    </div>
+    <div class="caption">The demo, 1 minute: the JavaScript version, the React version, then the dealing desk.</div>
+  </header>
+
+  <section class="block split">
+    <div class="text">
+      <h2>Clients see the risk before they click Buy</h2>
+      <p>Stop loss and take profit are set in pips. The order ticket turns them into money at once.</p>
+      <ul class="points">
+        <li>Margin needed and the value of one pip</li>
+        <li>Loss at the stop loss in dollars and as a % of equity</li>
+        <li>A clear warning when there is no stop loss</li>
+        <li>One-click trading switch: off, every quick order asks first; on, it trades at once</li>
+        <li>Depth of market ladder: click a price to place a limit or stop order</li>
+        <li>Pending orders, trailing stops, partial close, hedging and netting accounts</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/order-ticket.jpg" alt="The order ticket: stop loss and take profit in pips, margin, pip value, loss at the stop loss in dollars and % of equity" loading="lazy" style="max-width:420px; justify-self:center; width:100%">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Charts traders expect, and more</h2>
+      <p>Professional charts, built into the platform.</p>
+      <ul class="points">
+        <li>1, 2 or 4 charts on screen, each with its own symbol and timeframe</li>
+        <li>MACD, Stochastic, ATR, RSI, Bollinger, SMA, EMA and tick volume</li>
+        <li>Trend lines, horizontal lines, Fibonacci and rectangles that stay in place on every timeframe</li>
+        <li>Price alerts: a notification reaches the phone or computer even when the platform is closed</li>
+        <li>A countdown to the candle close, dark and light theme, resizable panels</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/four-charts-light.jpg" alt="Four charts at once in the light theme, with RSI and MACD panes, and the depth of market ladder" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>Two front-ends, one platform</h2>
+      <p>Built with Go, with the trader screen in two versions: one in plain JavaScript and one in React. Both look and behave the same.</p>
+      <ul class="points">
+        <li>Plain JavaScript: light and fast to load</li>
+        <li>React: components, for teams that already work in React</li>
+        <li>The broker picks the one that fits its team</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/react-trader.jpg" alt="The React version of the trader screen" loading="lazy">
+  </section>
+
+  <section class="assistant" aria-labelledby="ai">
+    <h2 id="ai"><span class="spark" aria-hidden="true">✦</span>An assistant that never trades on its own</h2>
+    <div class="chat">
+      <div class="say"><q>buy 0.5 gold, stop 150 pips, tp 300</q><div>Shows <b>Buy 0.50 XAUUSD, SL 2335.63, TP 2380.63</b> and waits for Confirm.</div></div>
+      <div class="say"><q>close half of my gold</q><div>Proposes <b>closing 0.25 of 0.50 lots</b> of the gold position. It understands Greek too.</div></div>
+      <div class="say"><q>when price crosses above sma 20 and rsi above 50 on eurusd m5 then buy 0.2 sl 15 tp 30</q><div>Becomes a rule the client can <b>test on recent history</b> and then activate. It replaces Expert Advisors, with no code.</div></div>
+      <div class="say"><q>what if gold falls 2%?</q><div>Shows the <b>new equity, the stop losses that would close positions on the way</b>, and the margin level.</div></div>
+    </div>
+    <p class="note">The assistant runs on the broker's own hardware, so client data never leaves the broker.</p>
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>The dealing desk</h2>
+      <p>What MT4/MT5 Manager leaves to the dealer by hand, done for them.</p>
+      <ul class="points">
+        <li>Toxic flow found automatically: a 0–100 score per client, explained in plain words</li>
+        <li>A-book / B-book routing by rules, with the reason for every position, and a shadow book to test new rules</li>
+        <li>Automatic hedging of the broker's exposure, and a news mode</li>
+        <li>Price guard against bad prices</li>
+        <li>Liquidation map, time machine, and questions in plain words</li>
+        <li>Four-eyes approvals and an audit trail for every change</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/dealing-desk.jpg" alt="The dealing desk: the broker's book per symbol, desk alerts, clients closest to stop-out" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>Toxic flow, caught in minutes</h2>
+      <p>In the demo, a simulated arbitrage client trades bitcoin. Within minutes the desk scores it 80 out of 100, marks it toxic and says why, in plain words.</p>
+    </div>
+    <img class="shot" src="assets/desk-toxic-flow.jpg" alt="Client scores: a latency-arbitrage client scored 80, toxic, with the reasons" loading="lazy">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Where the stop-outs sit</h2>
+      <p>For every price in a range: which client stop losses close, which accounts reach stop-out, and what the broker makes or loses. Plus a forecast of who is closed if the price moves 1, 2 or 4%.</p>
+    </div>
+    <img class="shot" src="assets/desk-liquidation-map.jpg" alt="Liquidation map for gold: stop losses, stop-outs and the broker's result per price" loading="lazy">
+  </section>
+
+  <section class="block">
+    <h2>Built for real money</h2>
+    <div class="facts">
+      <div><b>Nothing is lost</b><span>After a restart or a power cut the platform comes back exactly as it was.</span></div>
+      <div><b>Fast</b><span>Opening and closing a position takes well under a millisecond.</span></div>
+      <div><b>No double trades</b><span>A retried click or a reconnect never opens a second position.</span></div>
+      <div><b>Exact money</b><span>No rounding errors, and every balance can be checked in one click.</span></div>
+      <div><b>Reports without slowing trading</b><span>Back office and CRM reports never slow trading down.</span></div>
+      <div><b>On your servers</b><span>Installed on the broker's own servers. It works on desktops, tablets and phones.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    Go WebTrader. This page is a showcase; the source code is private.
+  </footer>
+</div>
+</body>
+</html>
