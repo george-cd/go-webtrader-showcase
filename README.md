@@ -70,4 +70,4 @@ In the demo, a simulated arbitrage client is marked toxic within minutes, with t
 
 ---
 
-*Demo and screenshots on request. Contact: George Drakou.*
+*A live demo is available on request.*
