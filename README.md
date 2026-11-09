@@ -59,16 +59,29 @@ The same screen, built twice on the same Go server: once in plain JavaScript (no
 
 ## For the dealing department
 
+A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
+
 ![Dealing desk](assets/dealing-desk.jpg)
 
-- **Every client, live:** who is trading, open positions, balances, and the floating profit or loss of clients and of the broker.
-- **Broker exposure per symbol** (B-book): the clients' net long or short position and its value.
-- **Clients closest to stop-out,** with margin call and near-stop-out flags.
-- **Latest trades of all clients,** with stop-outs highlighted.
-- **Back office:**
-  - withdrawals with four-eyes approval, so nobody approves their own;
-  - an append-only ledger;
-  - one-click reconciliation of every balance against the ledger.
+- **Toxic flow found automatically.** Every client gets a score from 0 to 100 from how the price moves 1, 5 and 60 seconds after each trade, win rate, holding time and profit factor. "Why?" explains every point in plain words.
+- **A-book / B-book routing by rules,** with the reason shown for every position ("Toxic flow to the market", "Gold over 2 lots"). Per-client overrides. A **shadow book** tests new rules on the same positions before they go live.
+- **Automatic hedging:** the net exposure over a limit per symbol is hedged at the liquidity provider. **News mode** halves the limits for a set time.
+- **Price guard:** stale, spiking or very wide prices block market orders.
+- **Liquidation map:** for every price in a range, which stop losses close, which accounts reach stop-out and what the broker makes or loses.
+- **Time machine:** rebuild the whole platform as it was at any past moment, for client complaints or the regulator.
+- **Ask the desk,** in English or Greek: *"clients long gold over 5 lots"*, *"what if bitcoin falls 3%"*.
+- **Reports:** where the broker's money came from (commission, swap, B-book, hedges) and how clients really do.
+- **Four-eyes approvals and an audit trail** for every rule, limit or override change, with who, when and why.
+- **Alerts for dealers,** in the page and on the phone: new toxic client, auto-hedge, stop-out, bad prices.
+- **Back office:** withdrawals with four-eyes approval, an append-only ledger, one-click reconciliation.
+
+![A latency-arbitrage client flagged as toxic](assets/desk-toxic-flow.jpg)
+
+The demo includes a client that sees bitcoin prices 5 seconds early. Within minutes the desk marks it toxic and explains why.
+
+![Liquidation map](assets/desk-liquidation-map.jpg)
+
+The liquidity provider is simulated with the platform's own prices; a real one plugs in through the price feed.
 
 ## Built for real money
 

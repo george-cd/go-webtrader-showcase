@@ -154,17 +154,34 @@
 
   <section class="block split flip">
     <div class="text">
-      <h2>The dealing desk, live</h2>
-      <p>Dealers get their own screen with every client.</p>
+      <h2>The dealing desk</h2>
+      <p>What MT4/MT5 Manager leaves to the dealer by hand, done for them.</p>
       <ul class="points">
-        <li>The broker's exposure per symbol, net long or short, with its value</li>
-        <li>Clients closest to stop-out, with margin call flags</li>
-        <li>The latest trades of all clients, stop-outs highlighted</li>
-        <li>Withdrawals with four-eyes approval</li>
-        <li>One-click check of every balance against the ledger</li>
+        <li>Toxic flow found automatically: a 0–100 score per client, with every point explained</li>
+        <li>A-book / B-book routing by rules, with the reason for every position, and a shadow book to test new rules</li>
+        <li>Automatic hedging over a limit per symbol, and a news mode</li>
+        <li>Price guard: stale or spiking prices block market orders</li>
+        <li>Liquidation map, time machine, and questions in plain words</li>
+        <li>Four-eyes approvals and an audit trail for every change</li>
       </ul>
     </div>
-    <img class="shot" src="assets/dealing-desk.jpg" alt="The dealing desk: totals, broker exposure per symbol, clients closest to stop-out, latest client trades" loading="lazy">
+    <img class="shot" src="assets/dealing-desk.jpg" alt="The dealing desk: the broker's book per symbol, desk alerts, clients closest to stop-out" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>Toxic flow, caught in minutes</h2>
+      <p>The demo has a client that sees bitcoin prices 5 seconds early. The desk measures how the price moves after each of its trades, scores it 80 out of 100, marks it toxic and says why, in plain words.</p>
+    </div>
+    <img class="shot" src="assets/desk-toxic-flow.jpg" alt="Client scores: a latency-arbitrage client scored 80, toxic, with the reasons" loading="lazy">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Where the stop-outs sit</h2>
+      <p>For every price in a range: which client stop losses close, which accounts reach stop-out, and what the broker makes or loses. Plus a forecast of who is closed if the price moves 1, 2 or 4%.</p>
+    </div>
+    <img class="shot" src="assets/desk-liquidation-map.jpg" alt="Liquidation map for gold: stop losses, stop-outs and the broker's result per price" loading="lazy">
   </section>
 
   <section class="block">
