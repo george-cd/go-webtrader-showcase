@@ -28,7 +28,7 @@ This repository is a showcase. The source code is private.
 - **Everything MT4/MT5 traders expect.** Market and pending orders (limit, stop, expiry), stop loss, take profit, trailing stop, partial close, hedging and netting accounts, swap, commission, margin call and stop-out.
 - **One-click trading switch**: off, every quick order asks first; on, it trades at once. Plus *Close profitable* and *Close all*.
 - **Depth of market ladder**: click a price to place a limit or stop order at it.
-- **Price alerts** from a tab or by clicking a price on the chart, with a sound when reached.
+- **Price alerts** from a tab or by clicking a price on the chart. The server watches them, so they keep working when the trader is away, and a **notification arrives on the phone or computer even when the platform is closed**.
 - **Works on desktops, tablets and phones.**
 
 ## Charts
