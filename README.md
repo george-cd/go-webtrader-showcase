@@ -2,7 +2,7 @@
 
 **A web trading platform for brokers, with an AI assistant that runs on the broker's own servers.**
 
-Clients trade in the browser, with no installation. They can type what they want in plain words and see the risk in money before every order. Dealers get one live screen with every client, the broker's exposure and the accounts close to stop-out.
+Clients trade in the browser, with no installation. They can type what they want in plain words and see the risk in money before every order. Dealers get a desk that finds toxic flow on its own, routes every position to the A-book or the B-book with the reason in plain words, hedges the broker's exposure automatically and shows where the stop-outs sit.
 
 ![Go WebTrader in action](assets/preview.gif)
 
