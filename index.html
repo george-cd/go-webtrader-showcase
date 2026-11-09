@@ -94,7 +94,7 @@
     <div class="screen">
       <video src="assets/go-webtrader-demo.mp4" poster="assets/trader.jpg" controls muted playsinline preload="metadata"></video>
     </div>
-    <div class="caption">The demo, 1 minute: the JavaScript version, the React version, then the dealing desk.</div>
+    <div class="caption">The demo, 1 minute: the JavaScript version, the React version, then the dealing desk. Prices come from a built-in simulator.</div>
   </header>
 
   <section class="block split">
@@ -116,12 +116,12 @@
   <section class="block split flip">
     <div class="text">
       <h2>Charts traders expect, and more</h2>
-      <p>Professional charts, built into the platform.</p>
+      <p>Drawn by the platform itself, with no chart library and no outside service.</p>
       <ul class="points">
         <li>1, 2 or 4 charts on screen, each with its own symbol and timeframe</li>
         <li>MACD, Stochastic, ATR, RSI, Bollinger, SMA, EMA and tick volume</li>
         <li>Trend lines, horizontal lines, Fibonacci and rectangles that stay in place on every timeframe</li>
-        <li>Price alerts: a notification reaches the phone or computer even when the platform is closed</li>
+        <li>Price alerts watched by the server: a notification reaches the phone or computer even when the platform is closed</li>
         <li>A countdown to the candle close, dark and light theme, resizable panels</li>
       </ul>
     </div>
@@ -131,11 +131,11 @@
   <section class="block split">
     <div class="text">
       <h2>Two front-ends, one platform</h2>
-      <p>Built with Go, with the trader screen in two versions: one in plain JavaScript and one in React. Both look and behave the same.</p>
+      <p>The trader screen is built twice, on the same Go engine: once in plain JavaScript with no framework, and once in React. Both share one design, one chart engine and one set of trading logic.</p>
       <ul class="points">
-        <li>Plain JavaScript: light and fast to load</li>
+        <li>Plain JavaScript: nothing to install, nothing to build, fastest to load</li>
         <li>React: components, for teams that already work in React</li>
-        <li>The broker picks the one that fits its team</li>
+        <li>The broker picks one; both talk to the same server</li>
       </ul>
     </div>
     <img class="shot" src="assets/react-trader.jpg" alt="The React version of the trader screen" loading="lazy">
@@ -149,7 +149,7 @@
       <div class="say"><q>when price crosses above sma 20 and rsi above 50 on eurusd m5 then buy 0.2 sl 15 tp 30</q><div>Becomes a rule the client can <b>test on recent history</b> and then activate. It replaces Expert Advisors, with no code.</div></div>
       <div class="say"><q>what if gold falls 2%?</q><div>Shows the <b>new equity, the stop losses that would close positions on the way</b>, and the margin level.</div></div>
     </div>
-    <p class="note">The assistant runs on the broker's own hardware, so client data never leaves the broker.</p>
+    <p class="note">The model is open source and runs on the broker's own hardware, so client data never leaves the broker. Every number comes from the trading engine, and the AI only understands the words. Common commands are understood by built-in rules in microseconds, even with the model offline.</p>
   </section>
 
   <section class="block split flip">
@@ -157,10 +157,10 @@
       <h2>The dealing desk</h2>
       <p>What MT4/MT5 Manager leaves to the dealer by hand, done for them.</p>
       <ul class="points">
-        <li>Toxic flow found automatically: a 0–100 score per client, explained in plain words</li>
+        <li>Toxic flow found automatically: a 0–100 score per client, with every point explained</li>
         <li>A-book / B-book routing by rules, with the reason for every position, and a shadow book to test new rules</li>
-        <li>Automatic hedging of the broker's exposure, and a news mode</li>
-        <li>Price guard against bad prices</li>
+        <li>Automatic hedging over a limit per symbol, and a news mode</li>
+        <li>Price guard: stale or spiking prices block market orders</li>
         <li>Liquidation map, time machine, and questions in plain words</li>
         <li>Four-eyes approvals and an audit trail for every change</li>
       </ul>
@@ -171,7 +171,7 @@
   <section class="block split">
     <div class="text">
       <h2>Toxic flow, caught in minutes</h2>
-      <p>In the demo, a simulated arbitrage client trades bitcoin. Within minutes the desk scores it 80 out of 100, marks it toxic and says why, in plain words.</p>
+      <p>The demo has a client that sees bitcoin prices 5 seconds early. The desk measures how the price moves after each of its trades, scores it 80 out of 100, marks it toxic and says why, in plain words.</p>
     </div>
     <img class="shot" src="assets/desk-toxic-flow.jpg" alt="Client scores: a latency-arbitrage client scored 80, toxic, with the reasons" loading="lazy">
   </section>
@@ -187,12 +187,12 @@
   <section class="block">
     <h2>Built for real money</h2>
     <div class="facts">
-      <div><b>Nothing is lost</b><span>After a restart or a power cut the platform comes back exactly as it was.</span></div>
-      <div><b>Fast</b><span>Opening and closing a position takes well under a millisecond.</span></div>
+      <div><b>Nothing is lost</b><span>Every change is on disk before it is confirmed. After a restart or a power cut the platform comes back exactly as it was.</span></div>
+      <div><b>Fast</b><span>Opening and closing a position takes well under a millisecond, including the safe write to disk.</span></div>
       <div><b>No double trades</b><span>A retried click or a reconnect never opens a second position.</span></div>
-      <div><b>Exact money</b><span>No rounding errors, and every balance can be checked in one click.</span></div>
-      <div><b>Reports without slowing trading</b><span>Back office and CRM reports never slow trading down.</span></div>
-      <div><b>On your servers</b><span>Installed on the broker's own servers. It works on desktops, tablets and phones.</span></div>
+      <div><b>Exact money</b><span>Balances are counted in whole cents and checked against an append-only ledger.</span></div>
+      <div><b>Reports without slowing trading</b><span>A PostgreSQL copy for back office and CRM is filled in the background.</span></div>
+      <div><b>On your servers</b><span>One program, no outside services. It works on desktops, tablets and phones.</span></div>
     </div>
   </section>
 
