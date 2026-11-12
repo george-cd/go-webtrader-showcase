@@ -90,7 +90,7 @@
 
   <header class="hero">
     <h1>Trading, risk and AI on one screen.</h1>
-    <p>A web trading platform for brokers. Clients trade in the browser, type orders in plain words and see the risk in money before every trade. The AI runs on the broker's own servers. Dealers get a desk that finds toxic flow on its own and hedges the broker's exposure automatically.</p>
+    <p>A web trading platform for brokers. Clients trade in the browser, type orders in plain words, see the risk in money before every trade and get a plan, guards and stats that MT4/MT5 do not have. The AI runs on the broker's own servers. Dealers get a desk that finds toxic flow on its own and hedges the broker's exposure automatically.</p>
     <div class="screen">
       <video src="assets/go-webtrader-demo.mp4" poster="assets/trader.jpg" controls muted playsinline preload="metadata"></video>
     </div>
@@ -141,6 +141,98 @@
     <img class="shot" src="assets/react-trader.jpg" alt="The React version of the trader screen" loading="lazy">
   </section>
 
+  <section class="block split flip">
+    <div class="text">
+      <h2>One login, every account</h2>
+      <p>A client signs in once and moves between all of their accounts, live and demo, each in its own currency. No password per account, as in MT4/MT5.</p>
+      <ul class="points">
+        <li>Accounts in USD, EUR, GBP, JPY, CHF, AUD, CAD, USDT, Bitcoin or Ether, converted at the live market rate</li>
+        <li>Money moves between the client's own accounts in one click, at the live rate</li>
+        <li>Share an account with another person at a level: view only, close only or trade, and take it back at any time</li>
+        <li>Two-factor sign-in, passkeys (fingerprint or face), and a list of the devices signed in</li>
+        <li>Sign-in straight from the broker's CRM</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/accounts.jpg" alt="The account switcher: a live USD account, demo accounts in EUR and Bitcoin, and an account shared with the client" loading="lazy" style="max-width:420px; justify-self:center; width:100%">
+  </section>
+  <section class="block split">
+    <div class="text">
+      <h2>A plan for every trade</h2>
+      <p>The ticket does more than send an order. The client says how much to risk, and the platform does the rest.</p>
+      <ul class="points">
+        <li>Size from the risk: "0.5% of my equity" with a stop loss becomes the right number of lots</li>
+        <li>Targets that each close a part of the position, and the stop moves to the entry after the first one</li>
+        <li>Guaranteed stop loss: closes at exactly the stop, even when the market jumps; the premium is shown before the order and paid only if the stop is hit</li>
+        <li>"One cancels the other" orders: a buy above and a sell below the market, the first to fill cancels the other</li>
+        <li>A maximum slippage per order, and for every position the price seen, the fill and the slippage</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/trade-plan.jpg" alt="The order ticket with risk sizing, two targets, a guaranteed stop and the cost of each part in money" loading="lazy" style="max-width:420px; justify-self:center; width:100%">
+  </section>
+  <section class="block split flip">
+    <div class="text">
+      <h2>"Why did my position close?"</h2>
+      <p>The question every support desk hears, answered by the platform itself.</p>
+      <ul class="points">
+        <li>What closed it: the stop loss, a target, the take profit, a loss limit or a stop-out</li>
+        <li>The level, the price at that moment, and a gap explained in pips</li>
+        <li>The 1-minute chart around the close, with the level marked</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/why-closed.jpg" alt="The explanation of a close: the stop loss reached, the bid and ask at that moment, and the chart around it" loading="lazy">
+  </section>
+  <section class="block split">
+    <div class="text">
+      <h2>Stats that say what to change</h2>
+      <p>Numbers a trader can act on, and the conclusion in plain words.</p>
+      <ul class="points">
+        <li>Win rate, profit factor, average win and loss, result per trade</li>
+        <li>Return from trading only, with deposits left out, and the largest drawdown</li>
+        <li>By symbol, by the hour and day of the trade, buy or sell, with or without a stop loss</li>
+        <li>"Your weakest symbol is USDJPY: 24% of all your losing money"</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/stats.jpg" alt="The Stats tab: headline numbers, conclusions in plain words, the growth curve and the result by hour" loading="lazy">
+  </section>
+  <section class="block split flip">
+    <div class="text">
+      <h2>Guards against a bad day</h2>
+      <p>The rules prop firms use, for every account. The broker sets them per group of accounts; the client can only make them stricter.</p>
+      <ul class="points">
+        <li>A daily loss limit and a maximum loss: new trades stop when one is reached, and everything can be closed</li>
+        <li>A maximum size open at once</li>
+        <li>A pause after a run of losing trades</li>
+        <li>A smarter stop-out: only the part needed is closed, not whole positions as in MT4/MT5</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/guards.jpg" alt="Account guards: the rules that apply and how much of today's loss limit is used" loading="lazy" style="max-width:420px; justify-self:center; width:100%">
+  </section>
+  <section class="block split">
+    <div class="text">
+      <h2>Copy trading, built in</h2>
+      <p>One account copies another, on the platform itself, with no plug-ins.</p>
+      <ul class="points">
+        <li>The size follows the equity of the two accounts, with a risk multiplier and a lot cap</li>
+        <li>Closes, stops and targets follow the leader; every copy passes the follower's own checks</li>
+        <li>A list of strategies to copy, showing results in percent only, never the money or the name behind them</li>
+        <li>A performance fee paid only on new profit</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/copy-trading.jpg" alt="Copy trading: copying a public strategy, its results in percent, and the copy log" loading="lazy" style="max-width:420px; justify-self:center; width:100%">
+  </section>
+  <section class="block split flip">
+    <div class="text">
+      <h2>Every account in one view</h2>
+      <p>All the client's accounts together, in the currency they choose.</p>
+      <ul class="points">
+        <li>Live and demo money counted apart</li>
+        <li>Equity, open profit and margin level of every account</li>
+        <li>The net exposure per symbol over all live accounts</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/portfolio.jpg" alt="The portfolio in euros: totals, every account, and the exposure per symbol" loading="lazy">
+  </section>
+
   <section class="assistant" aria-labelledby="ai">
     <h2 id="ai"><span class="spark" aria-hidden="true">✦</span>An assistant that never trades on its own</h2>
     <div class="chat">
@@ -184,6 +276,19 @@
     <img class="shot" src="assets/desk-liquidation-map.jpg" alt="Liquidation map for gold: stop losses, stop-outs and the broker's result per price" loading="lazy">
   </section>
 
+  <section class="block split">
+    <div class="text">
+      <h2>Loss limits, watched by the desk</h2>
+      <p>For prop-style and protected accounts: the accounts that hit a limit come first, then the ones closest to it.</p>
+      <ul class="points">
+        <li>Rules per group of accounts, applied the moment they are saved</li>
+        <li>How much of each limit every account has used</li>
+        <li>A reset after review, written in the trail</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-guards.jpg" alt="The dealing desk tab of account guards: accounts with limits and the rules per group" loading="lazy">
+  </section>
+
   <section class="block">
     <h2>Built for real money</h2>
     <div class="facts">
@@ -193,6 +298,9 @@
       <div><b>Exact money</b><span>No rounding errors, and every balance can be checked in one click.</span></div>
       <div><b>Reports without slowing trading</b><span>Back office and CRM reports never slow trading down.</span></div>
       <div><b>On your servers</b><span>Installed on the broker's own servers. It works on desktops, tablets and phones.</span></div>
+      <div><b>Live, without waiting</b><span>The account updates on screen the moment something changes.</span></div>
+      <div><b>Fiat and crypto</b><span>Accounts in eight fiat currencies, USDT, Bitcoin and Ether, to the satoshi.</span></div>
+      <div><b>Every close explained</b><span>The level, the price at that moment and the reason are kept for every close.</span></div>
     </div>
   </section>
 

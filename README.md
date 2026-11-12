@@ -38,6 +38,56 @@ This repository is a showcase. The source code is private.
 - **Drawing tools:** trend line, horizontal line, Fibonacci retracement, rectangle, eraser. Drawings stay in place on every timeframe.
 - **A countdown to the candle close** next to the live price, and lines for entries, stop losses, take profits, pending orders and alerts.
 
+## One login, every account
+
+![The account switcher](assets/accounts.jpg)
+
+- **One sign-in for all of a client's accounts**, live and demo, instead of a password per account as in MT4/MT5.
+- **Every account in its own currency**: USD, EUR, GBP, JPY, CHF, AUD, CAD, USDT, Bitcoin or Ether, converted at the live market rate. Money moves between the client's own accounts in one click.
+- **Sharing with levels**: view only, close only or trade, taken back at any time.
+- **Security**: two-factor sign-in, passkeys (fingerprint or face), the list of devices signed in, and sign-in from the broker's CRM.
+
+## Beyond MT4/MT5
+
+![A plan for every trade](assets/trade-plan.jpg)
+
+- **Size from the risk**: "0.5% of my equity" with a stop loss becomes the right number of lots.
+- **Trade plan**: targets that each close a part of the position, and the stop moves to the entry after the first one.
+- **Guaranteed stop loss**: closes at exactly the stop, even on a gap. The premium is shown before the order and paid only if the stop is hit.
+- **OCO orders**: a buy above and a sell below the market; the first to fill cancels the other.
+- **Execution report**: for every position, the price seen, the fill and the slippage, and a maximum slippage per order.
+- **A smarter stop-out**: only the part needed is closed, not whole positions.
+
+### "Why did my position close?"
+
+![Why the position closed](assets/why-closed.jpg)
+
+What closed it, the level, the price at that moment, a gap explained in pips, and the 1-minute chart around the close.
+
+### Stats that say what to change
+
+![The Stats tab](assets/stats.jpg)
+
+Win rate, profit factor, return from trading only, drawdown, by symbol, hour, day and side, and the conclusion in plain words.
+
+### Guards against a bad day
+
+![Account guards](assets/guards.jpg)
+
+Daily loss limit, maximum loss, maximum size open and a pause after a run of losses. The broker sets them per group of accounts; the client can only make them stricter.
+
+### Copy trading, built in
+
+![Copy trading](assets/copy-trading.jpg)
+
+One account copies another on the platform itself. A list of strategies shows results in percent only, and a performance fee is paid only on new profit.
+
+### Every account in one view
+
+![The portfolio](assets/portfolio.jpg)
+
+All accounts together in one currency, with the net exposure per symbol.
+
 ## Two versions: JavaScript and React
 
 ![The React version](assets/react-trader.jpg)
@@ -74,6 +124,12 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 In the demo, a simulated arbitrage client is marked toxic within minutes, with the reasons.
 
 ![Liquidation map](assets/desk-liquidation-map.jpg)
+
+### Loss limits, watched by the desk
+
+![Account guards on the dealing desk](assets/desk-guards.jpg)
+
+The accounts that hit a limit first, then the closest to one; rules per group of accounts; a reset after review.
 
 ## Built for real money
 
