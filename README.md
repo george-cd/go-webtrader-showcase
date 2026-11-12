@@ -88,6 +88,30 @@ One account copies another on the platform itself. A list of strategies shows re
 
 All accounts together in one currency, with the net exposure per symbol.
 
+### AI agents, on a leash
+
+![AI agents](assets/ai-agents.jpg)
+
+Clients connect Claude, ChatGPT or any AI agent to one account through MCP, within a mandate they write: symbols, size, daily loss, orders a day, approval on the phone for bigger orders, a kill switch and an audit log. The broker can cap or turn off agents per group.
+
+### The real cost, and the worst case
+
+![Real cost and stress test](assets/stress-test.jpg)
+
+Spread, commission, swap and break-even before the click, and what ±1%, ±3% or a weekend gap would do to the whole account.
+
+### A history nobody can rewrite
+
+![Proof of history](assets/proof.jpg)
+
+Every trade and deposit is chained with SHA-256 and signed by the server; the client checks the full statement against the receipts kept in the browser.
+
+### Orders that watch other markets, and the clock
+
+![A conditional order with a time stop](assets/conditional.jpg)
+
+"Buy EURUSD when gold goes above 2370", time stops, a weekly closing schedule, a drawdown pledge for copy trading, and notifications with buttons.
+
 ## Two versions: JavaScript and React
 
 ![The React version](assets/react-trader.jpg)
@@ -130,6 +154,12 @@ In the demo, a simulated arbitrage client is marked toxic within minutes, with t
 ![Account guards on the dealing desk](assets/desk-guards.jpg)
 
 The accounts that hit a limit first, then the closest to one; rules per group of accounts; a reset after review.
+
+### Every AI agent, under the desk's eye
+
+![AI agents on the dealing desk](assets/desk-agents.jpg)
+
+Every agent on a client account, its mandate, its day and every request, with one switch to turn them all off.
 
 ## Built for real money
 

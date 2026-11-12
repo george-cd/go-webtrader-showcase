@@ -233,6 +233,58 @@
     <img class="shot" src="assets/portfolio.jpg" alt="The portfolio in euros: totals, every account, and the exposure per symbol" loading="lazy">
   </section>
 
+  <section class="block split">
+    <div class="text">
+      <h2>AI agents, on a leash</h2>
+      <p>Clients connect Claude, ChatGPT or any AI agent to one account, through MCP. MT5 and cTrader open the whole account to the agent; here the client writes a <b>mandate</b> first, and the platform enforces it on every order.</p>
+      <ul class="points">
+        <li>Which symbols, how big, how much it may lose in a day, how many orders</li>
+        <li>Bigger orders wait for the client's approval on the phone, with fingerprint or Face ID</li>
+        <li>A kill switch, and an audit log of every request that cannot be changed</li>
+        <li>The broker can cap the lots of every agent, or turn agents off, per account group</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/ai-agents.jpg" alt="AI agents: the mandate, an order waiting for approval, and the audit log with blocked orders" loading="lazy" style="max-width:560px; justify-self:center; width:100%">
+  </section>
+  <section class="block split flip">
+    <div class="text">
+      <h2>The real cost, and the worst case</h2>
+      <p>Before the click: what the order really costs, and what a bad market would do to the whole account.</p>
+      <ul class="points">
+        <li>Spread, commission and swap for a night, a week and a month, in the account's currency</li>
+        <li>The break-even price</li>
+        <li>Prices ±1% and ±3%, every position against you, a weekend gap: equity, margin level, stop-out or not</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/stress-test.jpg" alt="The real cost of an order and the stress test of the account" loading="lazy" style="max-width:560px; justify-self:center; width:100%">
+  </section>
+  <section class="block split">
+    <div class="text">
+      <h2>A history nobody can rewrite</h2>
+      <p>Every trade and deposit is chained to the one before with SHA-256, and the server signs the result. The client's browser keeps the signed receipts, and checks the full statement against them at any time.</p>
+      <ul class="points">
+        <li>An edited or deleted old trade shows at once</li>
+        <li>Checked on the client's own computer, or by an auditor with a small tool</li>
+        <li>Proof that a B-book broker plays fair</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/proof.jpg" alt="Proof of history: every receipt signed and matching" loading="lazy" style="max-width:560px; justify-self:center; width:100%">
+  </section>
+  <section class="block split flip">
+    <div class="text">
+      <h2>Orders that watch other markets, and the clock</h2>
+      <p>Things that need an Expert Advisor on a VPS elsewhere, as plain options in the ticket.</p>
+      <ul class="points">
+        <li>"Buy EURUSD when gold goes above 2370"</li>
+        <li>Time stops: close after 4 hours, or only if not in profit by then</li>
+        <li>A weekly schedule: every Friday at 21:00 close everything, no weekend gap</li>
+        <li>Copy trading with a drawdown pledge: break it, and every copy stops on its own</li>
+        <li>Notifications with buttons: close the biggest loss or approve an order from the lock screen</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/conditional.jpg" alt="The ticket with a conditional order and a time stop" loading="lazy" style="max-width:300px; justify-self:center; width:100%">
+  </section>
+
   <section class="assistant" aria-labelledby="ai">
     <h2 id="ai"><span class="spark" aria-hidden="true">✦</span>An assistant that never trades on its own</h2>
     <div class="chat">
@@ -287,6 +339,13 @@
       </ul>
     </div>
     <img class="shot" src="assets/desk-guards.jpg" alt="The dealing desk tab of account guards: accounts with limits and the rules per group" loading="lazy">
+  </section>
+  <section class="block split flip">
+    <div class="text">
+      <h2>Every AI agent, under the desk's eye</h2>
+      <p>The dealing desk sees every agent connected to a client account, its mandate and its day, and every request it made. One switch turns them all off.</p>
+    </div>
+    <img class="shot" src="assets/desk-agents.jpg" alt="The dealing desk: broker limits for AI agents, connected agents and their audit log" loading="lazy">
   </section>
 
   <section class="block">
