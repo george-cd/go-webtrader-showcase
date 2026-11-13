@@ -6,7 +6,7 @@ Clients trade in the browser, with no installation. They can type what they want
 
 **Built with Go, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same.
 
-**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the 1-minute demo video.
+**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the 1½-minute demo video.
 
 ![Go WebTrader in action](assets/preview.gif)
 
