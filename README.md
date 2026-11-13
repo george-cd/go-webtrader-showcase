@@ -161,6 +161,73 @@ The accounts that hit a limit first, then the closest to one; rules per group of
 
 Every agent on a client account, its mandate, its day and every request, with one switch to turn them all off.
 
+## For the broker's business
+
+### A real liquidity provider, over FIX
+
+![LP connection](assets/desk-lp.jpg)
+
+- Connects to **cTrader liquidity** (Pepperstone, IC Markets and other cTrader brokers) over **FIX 4.4**, with its own FIX engine.
+- The LP's prices replace the simulated ones; the symbol list is read from the LP and matched by name.
+- **A-book trades and B-book hedges are executed at the LP**, each with the LP's price and the slippage shown.
+- If the LP goes quiet, prices stop: they are never replaced by made-up ones.
+
+### Partners (IB)
+
+![Partners](assets/desk-partners.jpg)
+
+- A sign-up link for every partner; the clients who sign up with it are theirs.
+- **Rebate per lot per asset class**, two levels (the partner and the partner above it), paid automatically when a live trade closes.
+- The partner sees the link, the clients and the earnings inside the platform.
+
+![The partner's own view](assets/partner.jpg)
+
+### Prop firm
+
+![A trader in a challenge](assets/prop-trader.jpg)
+
+- Funded-trader programs with phases: **Challenge → Verification → Funded** with a profit split.
+- Daily and maximum loss **checked on every price**; a broken rule fails the challenge at once, a reached target passes the phase on its own.
+- The trader sees the progress above the positions; the desk sees every challenge live.
+
+![Prop programs and challenges on the desk](assets/desk-prop.jpg)
+
+### Your brand, their language
+
+![White-label, in Greek](assets/white-label-greek.jpg)
+
+- The broker's **name, logo and colours**, set from the back office.
+- **English, Greek, Spanish and Arabic** (right to left); a new language is one table to translate.
+
+![Arabic, right to left](assets/arabic-rtl.jpg)
+
+### News, before it hits
+
+![Economic calendar](assets/desk-calendar.jpg)
+
+- An **economic calendar** inside the platform, entered by the broker or imported from a file.
+- Traders can have positions **closed minutes before high-impact news** on their currencies.
+- The desk switches its **news mode on by itself** around high-impact announcements.
+
+### The regulator's rules
+
+![Regulation](assets/desk-regulation.jpg)
+
+- **Retail leverage limits** per asset class (ESMA preset in one click), **negative balance protection**, professional clients.
+- The **risk warning** on every page with the real share of losing accounts, and the **transaction report** for regulatory reporting.
+- **Symbols, market hours, holidays and dividends** managed from the back office; closed markets refuse new orders.
+
+![Symbols](assets/desk-symbols.jpg)
+
+### Ready for the IT team
+
+![System](assets/desk-system.jpg)
+
+- A **standby server** copies every change live and can take over in about a minute.
+- **Automatic backups**, monitoring for **Prometheus/Grafana**, and a **load test**: about **1,650 orders and closes per second** on one test server, every order written to disk.
+- **Migration from MT4/MT5**: clients, open positions and history, with the same login numbers.
+- A **signed license** per broker and domain; installation guide, back office manual and API reference in **Word and PDF**.
+
 ## Built for real money
 
 - **Nothing is lost:** after a restart or a power cut the platform comes back exactly as it was.

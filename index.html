@@ -90,7 +90,7 @@
 
   <header class="hero">
     <h1>Trading, risk and AI on one screen.</h1>
-    <p>A web trading platform for brokers. Clients trade in the browser, type orders in plain words, see the risk in money before every trade and get a plan, guards and stats that MT4/MT5 do not have. The AI runs on the broker's own servers. Dealers get a desk that finds toxic flow on its own and hedges the broker's exposure automatically.</p>
+    <p>A web trading platform for brokers. Clients trade in the browser, type orders in plain words, see the risk in money before every trade and get a plan, guards and stats that MT4/MT5 do not have. The AI runs on the broker's own servers. Dealers get a desk that finds toxic flow on its own and hedges the broker's exposure automatically. The broker gets the rest too: a real liquidity provider, partners, prop-firm programs, the regulator's rules, its own brand and languages.</p>
     <div class="screen">
       <video src="assets/go-webtrader-demo.mp4" poster="assets/trader.jpg" controls muted playsinline preload="metadata"></video>
     </div>
@@ -349,6 +349,109 @@
   </section>
 
   <section class="block">
+    <h2>Everything a broker needs to go live</h2>
+    <p class="note" style="margin-top:0">Not only the trading screen: the back office, the liquidity provider, the partners, the regulator's rules and the IT side are part of the platform.</p>
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>A real liquidity provider, over FIX</h2>
+      <p>The platform connects to cTrader liquidity (Pepperstone, IC Markets and other cTrader brokers) over FIX 4.4, with its own FIX engine written for this platform.</p>
+      <ul class="points">
+        <li>The LP's prices replace the simulated ones, symbol by symbol; the symbol list is read from the LP and matched by name</li>
+        <li>A-book trades and B-book hedges are sent to the LP as market orders, and closed against the right LP position</li>
+        <li>Every order shows the LP's price and the slippage against the desk's price</li>
+        <li>If the LP goes quiet, prices stop: they are never replaced by made-up ones</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-lp.jpg" alt="The LP connection screen: FIX details, prices and orders connected, the symbol mapping" loading="lazy">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Partners who bring clients</h2>
+      <p>Introducing brokers (IB) get a sign-up link. Every client who signs up with it is theirs, and every lot that client closes pays them.</p>
+      <ul class="points">
+        <li>Rebate per lot for each asset class: forex, gold, indices, crypto…</li>
+        <li>Two levels: the partner, and the partner above it</li>
+        <li>Paid automatically when a live trade closes, into the partner's own account</li>
+        <li>The partner sees the link, the clients and the earnings on the platform itself</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-partners.jpg" alt="Partners on the dealing desk: two partners, their clients, lots and rebates" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>A prop firm, out of the box</h2>
+      <p>Funded-trader programs: the trader gets an account of e.g. 100,000 USD and has to reach a target without breaking the loss rules.</p>
+      <ul class="points">
+        <li>Phases: Challenge, Verification, Funded with a profit split</li>
+        <li>Daily and maximum loss checked on every price; a broken rule fails the challenge at once</li>
+        <li>A phase passes on its own when the target is reached and the minimum days are done</li>
+        <li>The trader sees the progress above the positions; the desk sees every challenge live</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/prop-trader.jpg" alt="A trader in a prop challenge: profit, daily loss, maximum loss and trading days above the positions" loading="lazy">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Your brand, their language</h2>
+      <p>The platform carries the broker's name, logo and colours. Each trader picks a language; Arabic turns the whole screen right to left.</p>
+      <ul class="points">
+        <li>English, Greek, Spanish and Arabic today; new languages are one table to translate</li>
+        <li>Set from the back office, with no developer involved</li>
+        <li>The dealing desk stays in English for the broker's staff</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/white-label-greek.jpg" alt="The trading screen under another broker's name, in Greek" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>News, before it hits</h2>
+      <p>An economic calendar inside the platform: interest rates, jobs reports, inflation.</p>
+      <ul class="points">
+        <li>The broker enters announcements or imports them from a file</li>
+        <li>Traders see what is coming for their currencies, and can have positions closed minutes before high-impact news</li>
+        <li>The desk switches its news mode on by itself around high-impact announcements, and tells the dealers</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-calendar.jpg" alt="The economic calendar on the dealing desk, with automatic news mode" loading="lazy">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>The regulator's rules, built in</h2>
+      <p>For brokers under CySEC, the FCA or any ESMA regulator.</p>
+      <ul class="points">
+        <li>Retail leverage limits per asset class, with the ESMA preset in one click</li>
+        <li>Negative balance protection for retail clients; professional clients on their own terms</li>
+        <li>The risk warning on every page, with the real share of losing accounts calculated by the platform</li>
+        <li>Transaction report for regulatory reporting, as a file</li>
+        <li>Market hours, holidays and dividends per symbol; closed markets refuse new orders</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-regulation.jpg" alt="The regulation screen: retail leverage limits, negative balance protection, risk warning and transaction report" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>Ready for the IT team</h2>
+      <p>What keeps a platform with real money running, day and night.</p>
+      <ul class="points">
+        <li>A standby server that copies every change live and can take over in about a minute</li>
+        <li>Automatic backups, kept and downloadable from the back office</li>
+        <li>Monitoring numbers for Prometheus and Grafana</li>
+        <li>A load test tool: about 1,650 orders and closes per second on one test server, every order written to disk</li>
+        <li>Clients and their history move over from MT4/MT5 with their login numbers</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-system.jpg" alt="The System screen: health numbers, backups and the standby server" loading="lazy">
+  </section>
+
+  <section class="block">
     <h2>Built for real money</h2>
     <div class="facts">
       <div><b>Nothing is lost</b><span>After a restart or a power cut the platform comes back exactly as it was.</span></div>
@@ -360,6 +463,9 @@
       <div><b>Live, without waiting</b><span>The account updates on screen the moment something changes.</span></div>
       <div><b>Fiat and crypto</b><span>Accounts in eight fiat currencies, USDT, Bitcoin and Ether, to the satoshi.</span></div>
       <div><b>Every close explained</b><span>The level, the price at that moment and the reason are kept for every close.</span></div>
+      <div><b>Never down for long</b><span>A standby server keeps a live copy and can take over in about a minute.</span></div>
+      <div><b>Licensed per broker</b><span>Each installation runs under a signed license for the broker's own domains.</span></div>
+      <div><b>Documents included</b><span>Installation guide, back office manual and API reference, in Word and PDF.</span></div>
     </div>
   </section>
 
