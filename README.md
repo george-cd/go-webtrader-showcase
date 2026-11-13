@@ -6,7 +6,7 @@ Clients trade in the browser, with no installation. They can type what they want
 
 **Built with Go, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same.
 
-**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the 1½-minute demo video.
+**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the 2-minute demo video.
 
 ![Go WebTrader in action](assets/preview.gif)
 
@@ -191,6 +191,26 @@ Every agent on a client account, its mandate, its day and every request, with on
 - The trader sees the progress above the positions; the desk sees every challenge live.
 
 ![Prop programs and challenges on the desk](assets/desk-prop.jpg)
+
+### Clients worth a call today
+
+![Growth](assets/desk-growth.jpg)
+
+- **Ready for a live account**: demo clients who trade regularly and carefully and have not funded an account yet.
+- **May be leaving**: clients who stopped coming, trade much less, withdrew most of their money or were stopped out, with what to do for each.
+- Both lists go to the CRM as a file; a **morning report** in plain words reaches the dealers' phones every day.
+
+![Morning report](assets/desk-morning.jpg)
+
+### A coach, a replay, and a deposit button
+
+![The coach](assets/coach.jpg)
+
+- **The coach**: before an order that looks like a known mistake (revenge trading, overtrading, no stop loss, too much risk), a short word in plain language. It never blocks.
+- **Trade replay**: every closed trade plays back on the chart, with the entry, stop loss, take profit and close.
+- **Add funds**: when the margin falls, one tap opens the broker's payment page (e.g. the PSP Hub) with the amount that brings the account back.
+
+![Trade replay](assets/replay.jpg)
 
 ### Your brand, their language
 
