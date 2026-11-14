@@ -131,6 +131,12 @@ The same screen in two versions on a Go back end: one in plain JavaScript and on
 
 A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 
+- **Needs you:** the desk lists what to handle now (approvals, withdrawals, stop-outs, bad prices, news, the LP, backups), each with an **Open** button to the right screen.
+- **Sounds:** a short tune for each kind of event, only for something new. Each dealer turns them on or off, sets the volume and chooses the events.
+- **Easy to find your way:** 23 screens in five groups, and two lines of help on every screen. A short welcome the first time.
+
+![Needs you and the sound settings](assets/desk-needs-sounds.jpg)
+
 - **Toxic flow found automatically.** Every client gets a score from 0 to 100, and "Why?" explains it in plain words.
 - **A-book / B-book routing by rules,** with the reason shown for every position ("Toxic flow to the market", "Gold over 2 lots"). Per-client overrides. A **shadow book** tests new rules on the same positions before they go live.
 - **Automatic hedging** of the broker's exposure, and a **news mode** for volatile moments.
