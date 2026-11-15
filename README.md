@@ -135,6 +135,17 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 - **Sounds:** a short tune for each kind of event, only for something new. Each dealer turns them on or off, sets the volume and chooses the events.
 - **Easy to find your way:** 23 screens in five groups, and two lines of help on every screen. A short welcome the first time.
 
+### Money managers (MAM) and more
+
+- **Money managers:** a manager trades one account and every trade is split live to the investors who joined with the invite link (by equity, balance or fixed lots), with a performance fee and a yearly management fee. Each investor can set their own limit and leave the manager on their own.
+- **A public track record** anyone can open: results in percent, from the journal nobody can rewrite.
+- **Cost saver:** Close By without the spread, and a warning when a hedge pays swap twice. **Stop Limit** orders as in MT5.
+- **Statements** (day or month, PDF or CSV), **credit (bonus)**, **swap-free (Islamic) accounts**, and **trading breaks** with a reality check.
+
+![Money manager](assets/mam-manager.jpg)
+![Public track record](assets/track-record.jpg)
+![Cost saver](assets/cost-saver.jpg)
+
 ![Needs you and the sound settings](assets/desk-needs-sounds.jpg)
 
 - **Toxic flow found automatically.** Every client gets a score from 0 to 100, and "Why?" explains it in plain words.
