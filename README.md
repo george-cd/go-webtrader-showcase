@@ -6,7 +6,7 @@ Clients trade in the browser, with no installation. They can type what they want
 
 **Built with Go, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same.
 
-**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the full demo video (about 4½ minutes).
+**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the full demo video (about 6 minutes).
 
 **▶ [The 3-minute pitch for investors](assets/go-webtrader-pitch.mp4)**: the market, the problem, and what is already built — for people who don't come from trading.
 
@@ -145,12 +145,18 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 - **A public track record** anyone can open: results in percent, from the journal nobody can rewrite.
 - **Cost saver:** Close By without the spread, and a warning when a hedge pays swap twice. **Stop Limit** orders as in MT5.
 - **Statements** (day or month, PDF or CSV), **credit (bonus)**, **swap-free (Islamic) accounts**, and **trading breaks** with a reality check. Every statement also **explains itself in plain words**: what happened, what it cost, what to watch.
+- **Our own ideas, part 2:** a **profit lock** (a share of every good month kept apart, never traded), a **shadow account** (the client's trades replayed with their own rules), **earn your leverage** (new clients start lower and earn the rest), a **pause before a deposit** right after a big loss, a **daily summary** on the phone, the **monthly statement by email**, a **tax report**, **client sentiment** in the order ticket and **voice orders**.
+- **To bring clients:** **demo contests** with a live table and **invite a friend** with cash or credit rewards, set in the desk's **Client programs**; **shares** of seven big US companies.
 - **The broker's own phone app** for iPhone and Android, built from the same screens: everything above works in the app, with notices on the phone.
 
 ![Money manager](assets/mam-manager.jpg)
 ![Public track record](assets/track-record.jpg)
 ![What if I had joined](assets/what-if.jpg)
 ![The phone app](assets/phone-app.jpg)
+![Profit lock](assets/profit-lock.jpg)
+![Shadow account](assets/shadow-account.jpg)
+![Contests](assets/contests.jpg)
+![Client programs](assets/desk-programs.jpg)
 ![Cost saver](assets/cost-saver.jpg)
 
 ![Needs you and the sound settings](assets/desk-needs-sounds.jpg)
