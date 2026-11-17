@@ -1,10 +1,57 @@
-[["f1.png","For the client · AI","An AI assistant that trades in plain words —<br>but nothing happens until the client says yes."],
- ["f2.png","For the client · honesty","Before every order: the real cost and the real risk,<br>said like a friend would say it."],
- ["f3.png","For the client · money managers","Let a professional trade for you —<br>with a loss limit that stops everything automatically."],
- ["f4.png","For the client · trust","A track record nobody can fake.<br>Every result is sealed and can be checked."],
- ["f5.png","For the client · fair play","The platform shows clients how to pay less.<br>Trust is what brings them back."],
- ["f6.png","For the client · clarity","A monthly statement that explains itself,<br>in plain words, in their language."],
- ["f7.png","For the broker · one screen","The dealing desk says what needs a person right now —<br>and opens the right screen."],
- ["f8.png","For the broker · risk","Every client scored automatically:<br>harmful trading is found in minutes, not months."],
- ["f9.png","For the broker · growth","A morning report in plain words,<br>on the manager’s phone before the day starts."],
- ["f10.png","For the broker · their brand","Their name, their colours, their language —<br>on the web and in the phone app."]]
+[
+[
+"f1.png",
+"For the client · AI",
+"An AI assistant that trades in plain words —<br>but nothing happens until the client says yes."
+],
+[
+"f2.png",
+"For the client · honesty",
+"Before every order: the real cost and the real risk,<br>said like a friend would say it."
+],
+[
+"f3.png",
+"For the client · money managers",
+"Let a professional trade for you —<br>with a loss limit that stops everything automatically."
+],
+[
+"f4.png",
+"For the client · trust",
+"A track record nobody can fake.<br>Every result is sealed and can be checked."
+],
+[
+"f5.png",
+"For the client · fair play",
+"The platform shows clients how to pay less.<br>Trust is what brings them back."
+],
+[
+"f6.png",
+"For the client · clarity",
+"A monthly statement that explains itself,<br>in plain words, in their language."
+],
+[
+"f7.png",
+"For the broker · one screen",
+"The dealing desk says what needs a person right now —<br>and opens the right screen."
+],
+[
+"f8.png",
+"For the broker · risk",
+"Every client scored automatically:<br>harmful trading is found in minutes, not months."
+],
+[
+"f9.png",
+"For the broker · growth",
+"A morning report in plain words,<br>on the manager’s phone before the day starts."
+],
+[
+"f10.png",
+"For the broker · their brand",
+"Their name, their colours, their language —<br>on the web and in the phone app."
+],
+[
+"f12.png",
+"For the client · before joining",
+"Before handing money to a manager, the client sees<br>what would have happened — after the fees."
+]
+]

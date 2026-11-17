@@ -5,13 +5,13 @@ P, SC = '/tmp/pitch/', '/tmp/video/scenes/'
 ENC = ['-c:v', 'libx264', '-crf', '20', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-r', '30']
 FADE = 0.35
 # (kind, image, seconds, scene folder for recordings)
-PLAN = [('card', 'c1-hook.jpg', 6.5), ('card', 'c2-market.jpg', 9), ('card', 'c3-problem.jpg', 10),
+PLAN = [('card', 'c1-hook.jpg', 6.5), ('card', 'c2-market.jpg', 9), ('card', 'c3-problem.jpg', 9.5),
         ('card', 'c4-answer.jpg', 7), ('card', 'c5-built.jpg', 4),
-        ('rec', 'f1.png', 8.5, 't1-trade'), ('rec', 'f2.png', 8, 't7-coach'), ('rec', 'f3.png', 9, 't10-mam'),
-        ('rec', 'f4.png', 8, 't14-track'), ('rec', 'f5.png', 8, 't11-saver'), ('rec', 'f6.png', 8, 't12-statement'),
-        ('rec', 'f7.png', 9, 'd0-needs'), ('rec', 'f8.png', 8, 'd1-overview'), ('rec', 'f9.png', 8, 'd5-growth'),
-        ('rec', 'f10.png', 8, 't4-brand'),
-        ('card', 'c6-stack.jpg', 10), ('card', 'c7-facts.jpg', 8), ('card', 'c8-model.jpg', 10),
+        ('rec', 'f1.png', 8.5, 't1-trade'), ('rec', 'f2.png', 8, 't7-coach'), ('rec', 'f3.png', 9, 't10-mam'), ('rec', 'f12.png', 8.5, 't15-whatif'),
+        ('rec', 'f4.png', 8, 't14-track'), ('rec', 'f5.png', 8, 't11-saver'), ('rec', 'f6.png', 8, 't17-explain'),
+        ('rec', 'f7.png', 8, 'd0-needs'), ('rec', 'f8.png', 8, 'd1-overview'), ('rec', 'f9.png', 8, 'd5-growth'),
+        ('rec', 'f10.png', 7.5, 't4-brand'), ('phone', 'f11.png', 10, 't18-mobile'),
+        ('card', 'c6-stack.jpg', 9.5), ('card', 'c7-facts.jpg', 8), ('card', 'c8-model.jpg', 9.5),
         ('card', 'c9-ask.jpg', 8), ('card', 'c10-end.jpg', 6)]
 only = sys.argv[1:]  # optional: scene numbers to (re)build
 
@@ -31,9 +31,17 @@ for i, s in enumerate(PLAN):
     d = s[2]; fades = f'fade=t=in:st=0:d={FADE},fade=t=out:st={d-FADE:.2f}:d={FADE}'
     if s[0] == 'card':
         run(['-framerate', '30', '-i', P + 'img/' + s[1], '-vf', f'format=yuv420p,loop=-1:1,trim=duration={d},{fades}'], out)
+    elif s[0] == 'phone':   # the phone app: the screen inside a phone body, rounded corners
+        speed = min(max(length(s[3]) / d, 1), 1.7)
+        fc = (f"[1:v]setpts=PTS/{speed:.3f},fps=30,scale=446:760,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':"
+              f"a='if(gt(hypot(max(abs(X-223)-183,0),max(abs(Y-380)-340,0)),40),0,255)',tpad=stop_mode=clone:stop_duration=20[r];"
+              f"[0:v][r]overlay=894:70,trim=duration={d},format=yuv420p,{fades}")
+        run(['-framerate', '30', '-loop', '1', '-i', P + 'img/' + s[1], '-f', 'concat', '-safe', '0', '-i', SC + s[3] + '/list.txt',
+             '-filter_complex', fc, '-t', str(d)], out)
     else:
         speed = min(max(length(s[3]) / d, 1), 1.7)   # long recordings play a little faster
-        fc = (f'[1:v]setpts=PTS/{speed:.3f},fps=30,crop=1440:745:0:0,scale=1184:-2,tpad=stop_mode=clone:stop_duration=20[v];'
+        top = 110 if s[3] == 't15-whatif' else 0   # that scene has its caption at the top
+        fc = (f'[1:v]setpts=PTS/{speed:.3f},fps=30,crop=1440:745:0:{top},scale=1184:-2,tpad=stop_mode=clone:stop_duration=20[v];'
               f'[0:v][v]overlay=128:259,trim=duration={d},format=yuv420p,{fades}')
         run(['-framerate', '30', '-loop', '1', '-i', P + 'img/' + s[1], '-f', 'concat', '-safe', '0', '-i', SC + s[3] + '/list.txt',
              '-filter_complex', fc, '-t', str(d)], out)

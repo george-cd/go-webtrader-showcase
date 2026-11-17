@@ -6,7 +6,9 @@ Clients trade in the browser, with no installation. They can type what they want
 
 **Built with Go, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same.
 
-**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the 2-minute demo video.
+**▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the full demo video (about 4½ minutes).
+
+**▶ [The 3-minute pitch for investors](assets/go-webtrader-pitch.mp4)**: the market, the problem, and what is already built — for people who don't come from trading.
 
 ![Go WebTrader in action](assets/preview.gif)
 
@@ -138,12 +140,17 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 ### Money managers (MAM) and more
 
 - **Money managers:** a manager trades one account and every trade is split live to the investors who joined with the invite link (by equity, balance or fixed lots), with a performance fee and a yearly management fee. Each investor can set their own limit and leave the manager on their own.
+- **"What if I had joined?"** Before joining, the client sees what their own amount would have become over the last months, after fees, with the worst fall — and whether their own loss limit would have taken them out.
+- **Monthly reports from the manager:** the platform fills in the month's numbers, the manager adds a note, every investor gets it with a notice.
 - **A public track record** anyone can open: results in percent, from the journal nobody can rewrite.
 - **Cost saver:** Close By without the spread, and a warning when a hedge pays swap twice. **Stop Limit** orders as in MT5.
-- **Statements** (day or month, PDF or CSV), **credit (bonus)**, **swap-free (Islamic) accounts**, and **trading breaks** with a reality check.
+- **Statements** (day or month, PDF or CSV), **credit (bonus)**, **swap-free (Islamic) accounts**, and **trading breaks** with a reality check. Every statement also **explains itself in plain words**: what happened, what it cost, what to watch.
+- **The broker's own phone app** for iPhone and Android, built from the same screens: everything above works in the app, with notices on the phone.
 
 ![Money manager](assets/mam-manager.jpg)
 ![Public track record](assets/track-record.jpg)
+![What if I had joined](assets/what-if.jpg)
+![The phone app](assets/phone-app.jpg)
 ![Cost saver](assets/cost-saver.jpg)
 
 ![Needs you and the sound settings](assets/desk-needs-sounds.jpg)
