@@ -1,7 +1,7 @@
-# Investor pitch video (2:56)
+# Investor pitch video (3:02)
 
 `assets/go-webtrader-pitch.mp4` — a short video for investors who don't come from trading:
-the market, the problem (one supplier, MetaQuotes), the answer, twelve real screens (incl. "what if I had joined" and the phone app), the difference,
+the market, the problem (one supplier, MetaQuotes), the answer, fourteen real screens (incl. "what if I had joined", the profit lock, the shadow account and the phone app), the difference,
 where the product stands, how it makes money, and the ask.
 
 How it is made (no voice, soft music generated in code):

@@ -7,10 +7,10 @@ FADE = 0.35
 # (kind, image, seconds, scene folder for recordings)
 PLAN = [('card', 'c1-hook.jpg', 6.5), ('card', 'c2-market.jpg', 9), ('card', 'c3-problem.jpg', 9.5),
         ('card', 'c4-answer.jpg', 7), ('card', 'c5-built.jpg', 4),
-        ('rec', 'f1.png', 8.5, 't1-trade'), ('rec', 'f2.png', 8, 't7-coach'), ('rec', 'f3.png', 9, 't10-mam'), ('rec', 'f12.png', 8.5, 't15-whatif'),
-        ('rec', 'f4.png', 8, 't14-track'), ('rec', 'f5.png', 8, 't11-saver'), ('rec', 'f6.png', 8, 't17-explain'),
-        ('rec', 'f7.png', 8, 'd0-needs'), ('rec', 'f8.png', 8, 'd1-overview'), ('rec', 'f9.png', 8, 'd5-growth'),
-        ('rec', 'f10.png', 7.5, 't4-brand'), ('phone', 'f11.png', 10, 't18-mobile'),
+        ('rec', 'f1.png', 8, 't1-trade'), ('rec', 'f2.png', 7, 't7-coach'), ('rec', 'f3.png', 8, 't10-mam'), ('rec', 'f12.png', 8, 't15-whatif'), ('rec', 'f13.png', 7.5, 't19-vault'), ('rec', 'f14.png', 8, 't20-shadow'),
+        ('rec', 'f4.png', 7, 't14-track'), ('rec', 'f5.png', 7, 't11-saver'), ('rec', 'f6.png', 7, 't17-explain'),
+        ('rec', 'f7.png', 8, 'd0-needs'), ('rec', 'f8.png', 7, 'd1-overview'), ('rec', 'f9.png', 7, 'd5-growth'),
+        ('rec', 'f10.png', 7, 't4-brand'), ('phone', 'f11.png', 9, 't18-mobile'),
         ('card', 'c6-stack.jpg', 9.5), ('card', 'c7-facts.jpg', 8), ('card', 'c8-model.jpg', 9.5),
         ('card', 'c9-ask.jpg', 8), ('card', 'c10-end.jpg', 6)]
 only = sys.argv[1:]  # optional: scene numbers to (re)build

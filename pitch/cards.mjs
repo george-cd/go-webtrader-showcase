@@ -55,7 +55,7 @@ await shot('c6-stack.jpg', page(K('The difference') + T('Others sell parts.<br>T
 // 7. what is built (facts from the code)
 const f = (n, l) => `<div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:26px 28px"><div style="font-family:'Inter Display',Inter;font-size:54px;font-weight:800;letter-spacing:-.02em">${G(n)}</div><div style="font-size:21px;color:#b7c3dd;margin-top:8px">${l}</div></div>`;
 await shot('c7-facts.jpg', page(K('Where it stands') + T('Built. Tested. Ready to pilot.', 62) +
-  `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px">${f('32,000', 'lines of server code')}${f('231', 'automated tests')}${f('~1,650', 'orders a second on one server')}${f('3', 'apps: web, React, phone')}${f('4', 'languages, incl. Arabic')}${f('0', 'trades lost after a restart')}</div>`));
+  `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px">${f('33,600', 'lines of server code')}${f('243', 'automated tests')}${f('~1,650', 'orders a second on one server')}${f('3', 'apps: web, React, phone')}${f('4', 'languages, incl. Arabic')}${f('0', 'trades lost after a restart')}</div>`));
 
 // 8. business model
 await shot('c8-model.jpg', page(K('How it makes money') + T('A monthly licence per broker.', 62) +
