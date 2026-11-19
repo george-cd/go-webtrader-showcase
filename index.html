@@ -325,7 +325,7 @@
       <ul class="points">
         <li><b>Needs you:</b> approvals, withdrawals, stop-outs, bad prices, news, the LP, backups. One click opens the right screen</li>
         <li><b>Sounds:</b> a short tune for each kind of event. On or off, volume, and which events, per dealer</li>
-        <li>23 screens in five groups: Today, Clients, Risk, Setup, System</li>
+        <li>26 screens in five groups: Today, Clients, Risk, Setup, System</li>
         <li>Two lines of help on every screen: what it is, and when to use it</li>
       </ul>
     </div>
@@ -338,6 +338,48 @@
       <p>In the demo, a simulated arbitrage client trades bitcoin. Within minutes the desk scores it 80 out of 100, marks it toxic and says why, in plain words.</p>
     </div>
     <img class="shot" src="assets/desk-toxic-flow.jpg" alt="Client scores: a latency-arbitrage client scored 80, toxic, with the reasons" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>What kind of trader is each client?</h2>
+      <p>19 kinds of behaviour, worked out from the trades every 30 seconds, each with the reason in plain words.</p>
+      <ul class="points">
+        <li>Harmful to the broker: latency arbitrage, news trader, coordinated group, steady winner, weekend gap</li>
+        <li>To watch: scalper, high frequency, robot, a few big wins, grid; risky for the client: martingale, no stop losses, overtrading</li>
+        <li><b>Accounts that trade together:</b> different people opening the same trade within 3 seconds, again and again</li>
+        <li><b>Trades around news:</b> every trade opened within 5 minutes of high-impact news, per client</li>
+        <li>A harmful behaviour reaches the dealer's phone; a routing rule can use any behaviour</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-behaviour.jpg" alt="The Behaviour screen: kinds of traders in five colours, with the clients of each" loading="lazy">
+  </section>
+
+  <section class="block split flip">
+    <div class="text">
+      <h2>Automations: "when this, do that"</h2>
+      <p>The dealer sets them in a table, without code. Each one acts once a day per client, and every run is listed.</p>
+      <ul class="points">
+        <li><b>When</b> a client gets a behaviour, reaches a score, loses a set amount today, is stopped out, opens a big trade, trades around news or in a group; or exposure on a symbol grows</li>
+        <li><b>Then</b> the A-book or the B-book, a message to the client, another group, a pause in new trades, or a word to the dealers</li>
+        <li>Each automation is also written in plain words, so the dealer sees what it will do</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-automations.jpg" alt="The Automations screen: when / then rows and what each one does in plain words" loading="lazy">
+  </section>
+
+  <section class="block split">
+    <div class="text">
+      <h2>What the routing was worth</h2>
+      <p>The routing report for today, 7, 30 or 90 days.</p>
+      <ul class="points">
+        <li>Per book: positions, lots and the broker's result</li>
+        <li>Per rule: where it sent the positions, and what the A-book avoided paying to winning clients</li>
+        <li>The shadow rules' result next to the live ones</li>
+        <li>How each LP filled: orders, refusals, orders sent in parts, average slippage in pips</li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/desk-routing.jpg" alt="The routing report: results per book, the shadow rules and the LP hedges" loading="lazy">
   </section>
 
   <section class="block split">
@@ -382,9 +424,11 @@
         <li>A-book trades and B-book hedges are sent to the LP as market orders, and closed against the right LP position</li>
         <li>Every order shows the LP's price and the slippage against the desk's price</li>
         <li>If the LP goes quiet, prices stop: they are never replaced by made-up ones</li>
+        <li><b>Several LPs:</b> clients see the best bid and ask of all of them; each order goes to the LP with the best price, and a close goes back to the LP that holds the position</li>
+        <li><b>Big orders are split</b> into parts of a size the broker sets</li>
       </ul>
     </div>
-    <img class="shot" src="assets/desk-lp.jpg" alt="The LP connection screen: FIX details, prices and orders connected, the symbol mapping" loading="lazy">
+    <img class="shot" src="assets/desk-several-lps.jpg" alt="The LP connection screen: FIX details, prices and orders connected, the symbol mapping" loading="lazy">
   </section>
 
   <section class="block split flip">

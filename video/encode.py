@@ -28,7 +28,7 @@ def phone(name, secs=12):   # the phone app inside a phone body (the background 
     run(['-framerate', '30', '-loop', '1', '-i', '/tmp/pitch/img/f11.png', '-f', 'concat', '-safe', '0', '-i', d + 'list.txt', '-filter_complex', fc, '-t', str(secs)], out)
     return out
 order = [card('c0-intro', 4)] + [scene(s) for s in ['t1-trade', 't7-coach', 't2-cost', 't8-replay', 't9-funds', 't3-calendar', 't4-brand', 't5-prop', 't6-partner', 't10-mam', 't11-saver', 't12-statement', 't13-manager', 't14-track', 't15-whatif', 't16-report', 't17-explain', 't19-vault', 't20-shadow', 't25-level', 't22-contest', 't21-invite', 't23-tax', 't24-sentiment']] + [phone('t18-mobile')] + \
-        [card('c1-desk', 3.5)] + [scene(s) for s in ['d0-needs', 'd1-overview', 'd5-growth', 'd6-mam', 'd7-programs', 'd2-lp', 'd3-business', 'd4-ops']] + [card('c2-end', 5)]
+        [card('c1-desk', 3.5)] + [scene(s) for s in ['d0-needs', 'd1-overview', 'd5-growth', 'd6-mam', 'd7-programs', 'd8-behaviour', 'd2-lp', 'd3-business', 'd4-ops']] + [card('c2-end', 5)]
 open(V + 'out/concat.txt', 'w').write(''.join(f"file '{p}'\n" for p in order))
 final = V + 'go-webtrader-demo.mp4'
 subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', V + 'out/concat.txt', '-c', 'copy', '-movflags', '+faststart', final + '.part.mp4'], check=True)

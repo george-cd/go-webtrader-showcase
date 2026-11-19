@@ -9,6 +9,7 @@ All scenes are filmed from the running platform (demo server with `DEMO=1`), as 
 | `film6.mjs` | "What if I had joined?", the manager's monthly report, the statement in plain words |
 | `film7.mjs` | The phone app (the iPhone/Android build, served by `appwebtrader/scripts/preview.mjs`) |
 | `film8.mjs`, `film8b.mjs` | Our own ideas, part 2: profit lock, shadow account, contests, invite a friend, tax report, sentiment, leverage level, the desk's Client programs |
+| `film9.mjs` | The desk: kinds of traders, accounts that trade together, trades around news, automations, the routing report, several LPs |
 | `cards.mjs` | The title cards |
 | `encode.py` | One mp4 per scene, then joins them without encoding again |
 | `lp.mjs` | Turns the demo liquidity provider's prices on or off |

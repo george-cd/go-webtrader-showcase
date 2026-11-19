@@ -135,7 +135,11 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 
 - **Needs you:** the desk lists what to handle now (approvals, withdrawals, stop-outs, bad prices, news, the LP, backups), each with an **Open** button to the right screen.
 - **Sounds:** a short tune for each kind of event, only for something new. Each dealer turns them on or off, sets the volume and chooses the events.
-- **Easy to find your way:** 23 screens in five groups, and two lines of help on every screen. A short welcome the first time.
+- **Kinds of traders:** 19 behaviours per client (latency arbitrage, news trader, coordinated group, scalper, martingale, careful ...), each with the reason; accounts of different people that trade together; trades opened around high-impact news.
+- **Automations without code:** "when a client gets a behaviour / loses N today / is stopped out / opens a big trade ... then the A-book, a message, a group, a pause or a word to the dealers", once a day per client.
+- **Routing report:** what the A/B decisions were worth per book and per rule, the shadow rules' result, and how each LP filled (refusals, split orders, slippage in pips).
+- **Several LPs:** best bid and ask across them, each order to the best price, big orders split into parts.
+- **Easy to find your way:** 26 screens in five groups, and two lines of help on every screen. A short welcome the first time.
 
 ### Money managers (MAM) and more
 
@@ -157,6 +161,11 @@ A dealing desk built to do what MT4/MT5 Manager leaves to the dealer by hand.
 ![Shadow account](assets/shadow-account.jpg)
 ![Contests](assets/contests.jpg)
 ![Client programs](assets/desk-programs.jpg)
+![Kinds of traders](assets/desk-behaviour.jpg)
+![Behaviours next to each client](assets/desk-behaviour-chips.jpg)
+![Automations](assets/desk-automations.jpg)
+![Routing report](assets/desk-routing.jpg)
+![Several LPs](assets/desk-several-lps.jpg)
 ![Cost saver](assets/cost-saver.jpg)
 
 ![Needs you and the sound settings](assets/desk-needs-sounds.jpg)
