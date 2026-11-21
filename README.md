@@ -4,7 +4,7 @@
 
 Clients trade in the browser, with no installation. They can type what they want in plain words and see the risk in money before every order. Dealers get a desk that finds toxic flow on its own, routes every position to the A-book or the B-book with the reason in plain words, hedges the broker's exposure automatically and shows where the stop-outs sit.
 
-**Built with Go, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same.
+**A C++ core with Go services around it, in two front-end versions:** one in plain JavaScript and one in React. Both look and behave the same. 10,000 users online, 1,000,000 open positions: [measured](#under-the-hood-a-c-core-go-around-it).
 
 **▶ [Open the showcase page](https://george-cd.github.io/go-webtrader-showcase/)**, with the full demo video (about 6 minutes).
 
@@ -118,7 +118,7 @@ Every trade and deposit is chained with SHA-256 and signed by the server; the cl
 
 ![The React version](assets/react-trader.jpg)
 
-The same screen in two versions on a Go back end: one in plain JavaScript and one in React. They look and behave the same, so a broker can choose the one that fits its team.
+The same screen in two versions, on a C++ core with Go services: one in plain JavaScript and one in React. They look and behave the same, so a broker can choose the one that fits its team.
 
 ## The AI assistant
 
@@ -283,14 +283,49 @@ Every agent on a client account, its mandate, its day and every request, with on
 ![System](assets/desk-system.jpg)
 
 - A **standby server** copies every change live and can take over in about a minute.
-- **Automatic backups**, monitoring for **Prometheus/Grafana**, and a **load test**: about **1,650 orders and closes per second** on one test server, every order written to disk.
+- **Automatic backups**, monitoring for **Prometheus/Grafana**, and a **load test with 10,000 real users online** (see below).
 - **Migration from MT4/MT5**: clients, open positions and history, with the same login numbers.
 - A **signed license** per broker and domain; installation guide, back office manual and API reference in **Word and PDF**.
+
+## Under the hood: a C++ core, Go around it
+
+Every calculation that touches money runs in one core written in **C++**, built for speed and for exact, repeatable results. Everything around it, from the API to the dealing desk and the AI, is written in **Go**.
+
+**The core (C++)**: all the trading calculations, live on every price:
+
+- Equity, margin and margin level of every account on every price, in any account currency.
+- Hedged margin, volume tiers, dynamic leverage, ESMA retail limits; settings per broker, per group and per login.
+- Margin calls with advice, and a smart stop-out that closes only what is needed.
+- Stop loss, take profit, trailing and guaranteed stops; limit, stop, stop-limit, OCO, conditional orders and time stops.
+- Trade plans, account guards, prop-firm rules, copy trading and money managers.
+- Swaps, commissions, dividends, credit and currency conversion.
+- *"What if prices moved?"* for the whole book, in one call.
+- Every change on disk before the answer; after a restart it comes back exactly the same, byte for byte.
+- A history nobody can rewrite: every account's events are chained with SHA-256.
+- All its memory is set aside at the start: nothing is allocated while trading, so there are no sudden pauses as the broker grows.
+
+**Around it (Go, and a C++ gateway)**: the services a broker and its clients use:
+
+- The client API and sign-in, with sessions, devices and per-address limits; passwords hashed slowly, at low priority, so sign-ins never slow trading down.
+- A **C++ WebSocket gateway**: one connection per browser carries the live prices and the client's own account; the core sends each account only what changed.
+- The back office and the dealing desk; liquidity over FIX 4.4; the AI assistant on the broker's own servers; price alerts and phone notifications.
+- A standby server, backups, a reporting copy in PostgreSQL, Prometheus monitoring, the license.
+
+**Measured** on one small test server with 2 virtual CPUs, the test tools included:
+
+| | |
+|---|---|
+| Open positions in the core | **1,000,000** (20,000 logins, 50 each) |
+| Checking a price against all of them | **0.4 µs** median, under 2 µs for 99% |
+| Prices through the core | **~200,000 a second** |
+| 1,000,000 market orders | **7.5 s** (about 6 µs each inside the core) |
+| Users online at once, all trading | **10,000**, with live prices and a live account each |
+| From an order to the new position on screen | **2 ms** median; no errors, no dropped connections |
 
 ## Built for real money
 
 - **Nothing is lost:** after a restart or a power cut the platform comes back exactly as it was.
-- **Fast:** opening and closing a position takes well under a millisecond.
+- **Fast:** an order is checked in about 6 microseconds inside the core, and reaches the client's screen in about 2 milliseconds with 10,000 users online.
 - **No double trades:** a retried click or a reconnect never opens a second position.
 - **Exact money:** no rounding errors in balances.
 - **Reporting** for back office, CRM and reports, without slowing trading down.

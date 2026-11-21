@@ -68,6 +68,11 @@
   .facts b { display:block; font-size:18px; margin-bottom:4px; }
   .facts span { color:var(--muted); font-size:15px; }
 
+  .two { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:40px; margin-top:24px; }
+  .two h3 { margin:0 0 6px; font-size:20px; }
+  .two p { margin:0 0 10px; color:var(--muted); }
+  .facts.numbers b { font-size:26px; }
+
   footer { padding:80px 0 50px; color:var(--muted); font-size:14px; }
 
   @media (max-width: 860px) {
@@ -76,6 +81,7 @@
     .say { grid-template-columns:1fr; gap:4px; }
     .say div { padding:0 0 6px; }
     .facts { grid-template-columns:1fr; }
+    .two { grid-template-columns:1fr; gap:24px; }
     .assistant { padding:24px; }
     section.block { padding-top:56px; }
   }
@@ -85,7 +91,7 @@
 <div class="wrap">
   <nav>
     <b>Go WebTrader</b>
-    <span><a href="#pitch">The 3-minute pitch</a> &nbsp;·&nbsp; <a href="assets/go-webtrader-demo.mp4">Watch the full demo</a></span>
+    <span><a href="#pitch">The 3-minute pitch</a> &nbsp;·&nbsp; <a href="#engine">Under the hood</a> &nbsp;·&nbsp; <a href="assets/go-webtrader-demo.mp4">Watch the full demo</a></span>
   </nav>
 
   <header class="hero">
@@ -137,7 +143,7 @@
   <section class="block split">
     <div class="text">
       <h2>Two front-ends, one platform</h2>
-      <p>Built with Go, with the trader screen in two versions: one in plain JavaScript and one in React. Both look and behave the same.</p>
+      <p>A C++ core with Go services around it, and the trader screen in two versions: one in plain JavaScript and one in React. Both look and behave the same.</p>
       <ul class="points">
         <li>Plain JavaScript: light and fast to load</li>
         <li>React: components, for teams that already work in React</li>
@@ -719,18 +725,64 @@
         <li>A standby server that copies every change live and can take over in about a minute</li>
         <li>Automatic backups, kept and downloadable from the back office</li>
         <li>Monitoring numbers for Prometheus and Grafana</li>
-        <li>A load test tool: about 1,650 orders and closes per second on one test server, every order written to disk</li>
+        <li>A load test with 10,000 real users online, and every number measured: see <a href="#engine">Under the hood</a></li>
         <li>Clients and their history move over from MT4/MT5 with their login numbers</li>
       </ul>
     </div>
     <img class="shot" src="assets/desk-system.jpg" alt="The System screen: health numbers, backups and the standby server" loading="lazy">
   </section>
 
+  <section class="block" id="engine">
+    <h2>Under the hood: a C++ core, Go around it</h2>
+    <p class="note" style="margin-top:0">Every calculation that touches money runs in one core written in C++, built for speed and for exact, repeatable results. Everything around it, from the API to the dealing desk and the AI, is written in Go.</p>
+    <div class="two">
+      <div>
+        <h3>The core (C++)</h3>
+        <p>All the trading calculations, live on every price:</p>
+        <ul class="points">
+          <li>Equity, margin and margin level of every account on every price, in any account currency</li>
+          <li>Hedged margin, volume tiers, dynamic leverage, ESMA retail limits; settings per broker, per group and per login</li>
+          <li>Margin calls with advice, and a smart stop-out that closes only what is needed</li>
+          <li>Stop loss, take profit, trailing and guaranteed stops; limit, stop, stop-limit, OCO, conditional orders and time stops</li>
+          <li>Trade plans, account guards, prop-firm rules, copy trading and money managers</li>
+          <li>Swaps, commissions, dividends, credit and currency conversion</li>
+          <li>"What if prices moved?" for the whole book, in one call</li>
+          <li>Every change on disk before the answer; after a restart it comes back exactly the same, byte for byte</li>
+          <li>A history nobody can rewrite: every account's events are chained with SHA-256</li>
+          <li>All its memory is set aside at the start: nothing is allocated while trading, so there are no sudden pauses as the broker grows</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Around it (Go, and a C++ gateway)</h3>
+        <p>The services a broker and its clients use:</p>
+        <ul class="points">
+          <li>The client API and sign-in, with sessions, devices and per-address limits; passwords hashed slowly, at low priority, so sign-ins never slow trading down</li>
+          <li>A C++ WebSocket gateway: one connection per browser carries the live prices and the client's own account; the core sends each account only what changed</li>
+          <li>The back office and the dealing desk: A-book/B-book routing, toxic-flow detection, automatic hedging</li>
+          <li>Liquidity over FIX 4.4, with its own FIX engine</li>
+          <li>The AI assistant on the broker's own servers</li>
+          <li>Price alerts and notifications to the phone</li>
+          <li>A standby server, backups, a reporting copy in PostgreSQL, Prometheus monitoring, the license</li>
+        </ul>
+      </div>
+    </div>
+    <h3 style="margin:40px 0 0">Measured</h3>
+    <p class="note" style="margin-top:6px">On one small test server with 2 virtual CPUs, the test tools included.</p>
+    <div class="facts numbers">
+      <div><b>1,000,000</b><span>open positions on 20,000 logins, 50 each, in the core</span></div>
+      <div><b>0.4 µs</b><span>to check a price against all of them (median; under 2 µs for 99%)</span></div>
+      <div><b>~200,000</b><span>prices a second through the core</span></div>
+      <div><b>7.5 s</b><span>for 1,000,000 market orders, about 6 µs each inside the core</span></div>
+      <div><b>10,000</b><span>users online at once, each trading, with live prices and a live account</span></div>
+      <div><b>2 ms</b><span>from an order to the new position on the client's screen (median), with no errors and no dropped connections</span></div>
+    </div>
+  </section>
+
   <section class="block">
     <h2>Built for real money</h2>
     <div class="facts">
       <div><b>Nothing is lost</b><span>After a restart or a power cut the platform comes back exactly as it was.</span></div>
-      <div><b>Fast</b><span>Opening and closing a position takes well under a millisecond.</span></div>
+      <div><b>Fast</b><span>An order is checked in about 6 microseconds inside the core, and reaches the client's screen in about 2 milliseconds with 10,000 users online.</span></div>
       <div><b>No double trades</b><span>A retried click or a reconnect never opens a second position.</span></div>
       <div><b>Exact money</b><span>No rounding errors, and every balance can be checked in one click.</span></div>
       <div><b>Reports without slowing trading</b><span>Back office and CRM reports never slow trading down.</span></div>
