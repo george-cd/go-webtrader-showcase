@@ -770,9 +770,9 @@
     <p class="note" style="margin-top:6px">On one small test server with 2 virtual CPUs, the test tools included.</p>
     <div class="facts numbers">
       <div><b>1,000,000</b><span>open positions on 20,000 logins, 50 each, in the core</span></div>
-      <div><b>0.4 µs</b><span>to check a price against all of them (median; under 2 µs for 99%)</span></div>
-      <div><b>~200,000</b><span>prices a second through the core</span></div>
-      <div><b>7.5 s</b><span>for 1,000,000 market orders, about 6 µs each inside the core</span></div>
+      <div><b>0.3 µs</b><span>to check a price against all of them (median; about 1 µs for 99%)</span></div>
+      <div><b>~270,000</b><span>prices a second through the core</span></div>
+      <div><b>6.4 s</b><span>for 1,000,000 market orders, about 5 µs each inside the core</span></div>
       <div><b>10,000</b><span>users online at once, each trading, with live prices and a live account</span></div>
       <div><b>2 ms</b><span>from an order to the new position on the client's screen (median), with no errors and no dropped connections</span></div>
     </div>
@@ -782,7 +782,7 @@
     <h2>Built for real money</h2>
     <div class="facts">
       <div><b>Nothing is lost</b><span>After a restart or a power cut the platform comes back exactly as it was.</span></div>
-      <div><b>Fast</b><span>An order is checked in about 6 microseconds inside the core, and reaches the client's screen in about 2 milliseconds with 10,000 users online.</span></div>
+      <div><b>Fast</b><span>An order is checked in about 5 microseconds inside the core, and reaches the client's screen in about 2 milliseconds with 10,000 users online.</span></div>
       <div><b>No double trades</b><span>A retried click or a reconnect never opens a second position.</span></div>
       <div><b>Exact money</b><span>No rounding errors, and every balance can be checked in one click.</span></div>
       <div><b>Reports without slowing trading</b><span>Back office and CRM reports never slow trading down.</span></div>

@@ -316,16 +316,16 @@ Every calculation that touches money runs in one core written in **C++**, built 
 | | |
 |---|---|
 | Open positions in the core | **1,000,000** (20,000 logins, 50 each) |
-| Checking a price against all of them | **0.4 µs** median, under 2 µs for 99% |
-| Prices through the core | **~200,000 a second** |
-| 1,000,000 market orders | **7.5 s** (about 6 µs each inside the core) |
+| Checking a price against all of them | **0.3 µs** median, about 1 µs for 99% |
+| Prices through the core | **~270,000 a second** |
+| 1,000,000 market orders | **6.4 s** (about 5 µs each inside the core) |
 | Users online at once, all trading | **10,000**, with live prices and a live account each |
 | From an order to the new position on screen | **2 ms** median; no errors, no dropped connections |
 
 ## Built for real money
 
 - **Nothing is lost:** after a restart or a power cut the platform comes back exactly as it was.
-- **Fast:** an order is checked in about 6 microseconds inside the core, and reaches the client's screen in about 2 milliseconds with 10,000 users online.
+- **Fast:** an order is checked in about 5 microseconds inside the core, and reaches the client's screen in about 2 milliseconds with 10,000 users online.
 - **No double trades:** a retried click or a reconnect never opens a second position.
 - **Exact money:** no rounding errors in balances.
 - **Reporting** for back office, CRM and reports, without slowing trading down.
