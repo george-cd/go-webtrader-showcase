@@ -253,7 +253,7 @@ Every agent on a client account, its mandate, its day and every request, with on
 
 ### Your brand, their language
 
-![White-label, in Greek](assets/white-label-greek.jpg)
+![White-label: another broker's name and colours](assets/white-label.jpg)
 
 - The broker's **name, logo and colours**, set from the back office.
 - **English, Greek, Spanish and Arabic** (right to left); a new language is one table to translate.
